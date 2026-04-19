@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoroFib | Executive Material Innovation</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons for minimalist HUD icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS (CDN for rapid prototyping) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        onyx: '#0A0A0A',
+                        mineral: '#2C4C3B',
+                        slate: '#8E9B96',
+                        offwhite: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Bodoni Moda', 'serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "url('https://images.unsplash.com/photo-1612423284934-2850a4ea6b0f?auto=format&fit=crop&w=1920&q=80')",
+                        'tech-pattern': "url('https://images.unsplash.com/photo-1579725942555-c2efd02a0b22?auto=format&fit=crop&w=1920&q=80')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom CSS for Advanced Editorial Layouts & Interactions */
+
+        body {
+            background-color: #0A0A0A;
+            color: #F5F5F5;
+            overflow-x: hidden;
+        }
+
+        /* Haute Couture Navigation */
+        .shimmer-text {
+            background: linear-gradient(120deg, #F5F5F5 30%, #a4b5af 45%, #ffffff 50%, #a4b5af 55%, #F5F5F5 70%);
+            background-size: 250% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shine 8s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+            100% { background-position: 0% center; }
+        }
+
+        .nav-link {
+            position: relative;
+            font-size: 11px;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #8E9B96;
+            transition: color 0.4s ease;
+            padding-bottom: 4px;
+        }
+
+        .nav-link:hover {
+            color: #FFF;
+        }
+
+        .nav-underline {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #2C4C3B;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .nav-link:hover .nav-underline {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .nav-scrolled #navContainer {
+            padding-top: 0.5rem !important;
+            padding-bottom: 0.5rem !important;
+        }
+
+        .nav-scrolled #brandLogo {
+            transform: scale(0.65);
+        }
+
+
+        /* Scroll Reveals */
+        .reveal {
+            opacity: 0;
+            transition: all 1.4s cubic-bezier(0.19, 1, 0.22, 1);
+            transform: translateY(40px);
+        }
+
+        .reveal-left { transform: translateX(-60px); }
+        .reveal-right { transform: translateX(60px); }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.4s;
+        }
+
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 20s linear infinite;
+        }
+
+        /* Parallax Utility */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Cinematic Team Portraits */
+        .team-card {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            cursor: pointer;
+        }
+
+        .team-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.1);
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .team-card:hover .team-img {
+            filter: grayscale(0%) contrast(1);
+            transform: scale(1.05);
+        }
+
+        .team-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 0%, rgba(10, 10, 10, 0.4) 40%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+        }
+
+        .team-card:hover .team-overlay {
+            opacity: 1;
+        }
+
+        .team-overlay h3,
+        .team-overlay p {
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .team-card:hover .team-overlay h3 {
+            transform: translateY(0);
+            opacity: 1;
+            transition-delay: 0.1s;
+        }
+
+        .team-card:hover .team-overlay p {
+            transform: translateY(0);
+            opacity: 1;
+            transition-delay: 0.2s;
+        }
+
+        /* Asymmetrical Image Wrapper */
+        .asym-image-wrapper {
+            position: relative;
+        }
+
+        .asym-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #8E9B96;
+            z-index: -1;
+        }
+
+        /* Lookbook Grid */
+        .lookbook-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+
+        .lb-item-1 {
+            grid-column: 1 / 8;
+            aspect-ratio: 16/9;
+        }
+
+        .lb-item-2 {
+            grid-column: 8 / 13;
+            aspect-ratio: 3/4;
+            transform: translateY(4rem);
+        }
+
+        .lb-item-3 {
+            grid-column: 1 / 6;
+            aspect-ratio: 4/5;
+        }
+
+        .lb-item-4 {
+            grid-column: 6 / 13;
+            aspect-ratio: 16/9;
+            transform: translateY(-4rem);
+        }
+
+        @media (max-width: 768px) {
+            .lookbook-grid {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .lb-item-1,
+            .lb-item-2,
+            .lb-item-3,
+            .lb-item-4 {
+                transform: none !important;
+                aspect-ratio: auto;
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased font-sans selection:bg-mineral selection:text-white">
+
+    <!-- Haute Couture Nav (Left-Aligned Logo) -->
+    <nav id="mainNav" class="fixed w-full top-0 z-50 transition-all duration-700 max-w-[100vw] overflow-hidden">
+        <div class="absolute inset-0 bg-onyx/60 backdrop-blur-2xl -z-10 transition-colors duration-700" id="navBg"></div>
+        <div class="px-8 md:px-16 py-4 flex justify-between items-center relative transition-all duration-700" id="navContainer">
+            
+            <!-- Left Banner Logo -->
+            <a href="#" id="brandLogo" class="text-3xl md:text-4xl font-serif tracking-[0.2em] uppercase shimmer-text inline-block transition-transform duration-700 origin-left">
+                SoroFib
+            </a>
+
+            <!-- Right Links -->
+            <div class="hidden md:flex items-center space-x-12">
+                <a href="#philosophy" class="nav-link relative">Philosophy<div class="nav-underline"></div></a>
+                <a href="#technology" class="nav-link relative">Technology<div class="nav-underline"></div></a>
+                <a href="#lookbook" class="nav-link relative">Collections<div class="nav-underline"></div></a>
+                <a href="#team" class="nav-link relative">Leadership<div class="nav-underline"></div></a>
+                <a href="#process" class="nav-link relative">R&D System<div class="nav-underline"></div></a>
+                <a href="#sustainability" class="nav-link relative">Impact<div class="nav-underline"></div></a>
+                <a href="#contact" class="nav-link relative">Contact<div class="nav-underline"></div></a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <div class="md:hidden">
+                <button class="text-offwhite hover:text-mineral transition-colors">
+                    <i class="ph ph-list text-3xl"></i>
+                </button>
+            </div>
+            
+        </div>
+        <!-- Animated Silk Thread Sub-border -->
+        <div id="silkThread" class="absolute bottom-0 left-0 h-[1px] bg-gradient-to-r from-mineral via-mineral to-transparent w-full opacity-0 transform scale-x-0 origin-left transition-all duration-[1200ms] ease-out"></div>
+    </nav>
+    <!-- 1. HERO SECTION (Asymmetrical Editorial) -->
+    <header class="relative min-h-screen flex flex-col md:flex-row overflow-hidden bg-[#0A0A0A]">
+        
+        <!-- Left Panel: The Logic -->
+        <div class="w-full md:w-[45%] flex items-center justify-center pt-32 pb-16 px-8 md:px-16 z-10 relative">
+            <div class="max-w-xl w-full">
+                <div class="flex items-center gap-4 mb-10 reveal reveal-delay-1">
+                    <div class="w-8 h-[1px] bg-mineral"></div>
+                    <p class="text-mineral font-sans tracking-[0.4em] uppercase text-[9px] font-bold">9-Year Industry Legacy</p>
+                </div>
+                
+                <h1 class="font-serif text-6xl lg:text-7xl xl:text-[5.5rem] leading-[0.9] text-offwhite tracking-tight reveal reveal-delay-2">
+                    Responsible<br>
+                    <span class="italic text-slate ml-8 block mt-2">Material</span> 
+                    <span class="block mt-2">Thinking.</span>
+                </h1>
+                
+                <p class="text-slate font-light text-sm md:text-base leading-relaxed mt-12 border-l border-mineral/30 pl-6 max-w-sm reveal reveal-delay-3">
+                    "We transform sustainability into long-term product strategy. Building the future of luxury from the fiber up."
+                </p>
+
+                <!-- Scroll Indicator inline for alignment -->
+                <div class="mt-24 flex items-center gap-4 opacity-40 reveal reveal-delay-4">
+                    <span class="font-sans text-[9px] uppercase tracking-[0.4em] text-slate block transform -rotate-90 origin-left translate-y-3">Scroll</span>
+                    <div class="w-[1px] h-16 bg-gradient-to-b from-mineral to-transparent"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel: The Material -->
+        <div class="w-full md:w-[55%] relative min-h-[50vh] md:min-h-screen reveal reveal-delay-1">
+            <!-- Macro Fabric Image -->
+            <div class="absolute inset-0 w-full h-full">
+                <!-- Using user-provided high-end dark bio-tech/fabric abstract -->
+                <img src="./1776626306.png" 
+                     alt="Bespoke luxury fabric" 
+                     class="w-full h-full object-cover opacity-80" />
+            </div>
+            
+            <!-- Gradient Overlays for depth -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/50 to-transparent w-1/2 hidden md:block"></div>
+            <div class="absolute inset-0 bg-mineral/10 mix-blend-color"></div>
+
+            <!-- Absolute positioned graphic element -->
+            <div class="absolute bottom-12 right-12 text-right hidden lg:block opacity-30 mix-blend-overlay">
+                <h2 class="font-sans text-[200px] leading-none font-bold tracking-tighter mix-blend-overlay text-white fill-transparent opacity-20" style="-webkit-text-stroke: 1px rgba(255,255,255,0.5); color: transparent;">01</h2>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- 2. BRAND PHILOSOPHY (Tactile Gallery) -->
+    <section id="philosophy" class="relative py-32 md:py-56 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto bg-[#0A0A0A] overflow-hidden">
+        
+        <!-- Elegant Flowing Silk Background -->
+        <div class="absolute inset-0 z-0 pointer-events-none opacity-20 mix-blend-screen bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80'); filter: grayscale(100%);"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-[#0A0A0A] z-0 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-mineral/40 via-transparent to-[#0A0A0A] z-0 pointer-events-none mix-blend-multiply"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-start relative z-10">
+            
+            <!-- Left: Strategic Rhetoric -->
+            <div class="lg:col-span-5 space-y-16 reveal relative z-10 lg:pr-8">
+                <div class="space-y-6">
+                    <h2 class="text-[10px] font-sans tracking-[0.4em] text-mineral uppercase font-bold border-l-2 border-mineral pl-4">Strategic Pillars</h2>
+                    <h3 class="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight shimmer-text">
+                        Sustainability <br><span class="italic font-light">is Logic.</span>
+                    </h3>
+                </div>
+                
+                <p class="text-slate font-light leading-relaxed text-base md:text-lg max-w-lg">
+                    At SoroFib, we do not treat "sustainability" as a marketing label. Instead, we transform it into a foundational product strategy. Our approach ensures that environmental impact is decided before a single sketch is drawn.
+                </p>
+
+                <!-- Interactive Accordion-style Principles -->
+                <div class="space-y-0 border-t border-white/5 pt-8 max-w-lg">
+                    <div class="group border-b border-white/5 py-8 cursor-pointer relative overflow-hidden">
+                        <div class="absolute inset-0 bg-mineral/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"></div>
+                        <div class="relative z-10 flex flex-col gap-2">
+                            <span class="font-sans text-[9px] text-mineral uppercase tracking-[0.3em]">Principle 01</span>
+                            <h4 class="font-serif text-3xl text-offwhite group-hover:text-mineral transition-colors duration-500">Responsible Material Thinking</h4>
+                            <p class="text-slate text-sm font-light leading-relaxed opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-500 ease-out overflow-hidden mt-1 m-0">Transforming sustainable expression into a rigorous, long-term design language.</p>
+                        </div>
+                    </div>
+                    <div class="group border-b border-white/5 py-8 cursor-pointer relative overflow-hidden">
+                        <div class="absolute inset-0 bg-mineral/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"></div>
+                        <div class="relative z-10 flex flex-col gap-2">
+                            <span class="font-sans text-[9px] text-mineral uppercase tracking-[0.3em]">Principle 02</span>
+                            <h4 class="font-serif text-3xl text-offwhite group-hover:text-mineral transition-colors duration-500">Strategic Durability</h4>
+                            <p class="text-slate text-sm font-light leading-relaxed opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-500 ease-out overflow-hidden mt-1 m-0">Improving structural integrity to extend the product lifecycle indefinitely.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: The Tactile Gallery -->
+            <div class="lg:col-span-7 reveal reveal-delay-2 relative h-[600px] lg:h-[800px] mt-16 lg:mt-0">
+                
+                <!-- Primary Image (Vertical) -->
+                <div class="absolute top-0 right-0 w-[85%] lg:w-[75%] h-[75%] z-0 overflow-hidden group shadow-2xl">
+                    <div class="absolute inset-0 bg-mineral/20 mix-blend-color z-10 group-hover:opacity-0 transition-opacity duration-700 pointer-events-none"></div>
+                    <img src="./1776626263.png" 
+                         alt="Molecular Fiber Integrity"
+                         class="w-full h-full object-cover brightness-75 group-hover:brightness-100 group-hover:scale-105 transition-all duration-[1500ms] ease-out">
+                </div>
+
+                <!-- Secondary Overlapping Image (Horizontal) -->
+                <div class="absolute bottom-[5%] left-0 w-[70%] lg:w-[60%] aspect-[4/3] z-10 overflow-hidden shadow-2xl shadow-black border border-white/5 group">
+                    <img src="./1776626892.png"
+                         alt="Textile Process Geometry"
+                         class="w-full h-full object-cover contrast-125 transition-all duration-1000">
+                </div>
+
+                <!-- Floating Glassmorphic Quote Box -->
+                <div class="absolute top-[20%] left-[-5%] lg:left-[-15%] bg-onyx/80 backdrop-blur-xl border border-white/10 p-8 md:p-10 z-20 max-w-xs shadow-2xl shadow-black/50">
+                    <div class="absolute top-0 left-0 w-[2px] h-full bg-gradient-to-b from-mineral to-transparent"></div>
+                    <svg class="w-6 h-6 text-mineral/50 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <p class="font-serif text-xl italic text-offwhite leading-relaxed">
+                        "The footprint of a garment is decided at the <span class="text-mineral font-medium not-italic">molecular phase</span>."
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. MATERIAL TECHNOLOGY (Sorona Breakthrough) -->
+    <section id="technology" class="py-32 md:py-48 bg-[#0A0A0A] text-offwhite relative overflow-hidden">
+        
+        <!-- Elegant Flowing Silk Background (Flipped) -->
+        <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.15] mix-blend-screen bg-cover bg-center bg-no-repeat rotate-180" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80'); filter: grayscale(100%);"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A] z-0 pointer-events-none"></div>
+
+        <div class="relative z-10 px-4 md:px-12 lg:px-24 max-w-screen-2xl mx-auto">
+            
+            <!-- Section Header -->
+            <div class="mb-32 reveal text-center">
+                <h2 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.1] mb-6 shimmer-text">Fabric <br><span class="italic font-light">Innovations.</span></h2>
+                <div class="w-[1px] h-24 bg-mineral mx-auto mb-6"></div>
+                <p class="font-sans text-[10px] tracking-[0.4em] uppercase text-mineral">Engineered Textures</p>
+            </div>
+
+            <!-- Focus 1: Sorona -->
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-32 mb-40">
+                <!-- Image Side -->
+                <div class="w-full lg:w-1/2 reveal relative">
+                    <div class="p-3 md:p-5 bg-onyx/40 backdrop-blur-md border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden group">
+                        <div class="w-full aspect-[4/3] overflow-hidden relative">
+                            <img src="./1776627992.png" alt="Sorona Polymer Fabric" class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-100 group-hover:scale-105 transition-all duration-[2000ms] ease-out">
+                        </div>
+                    </div>
+                </div>
+                <!-- Text Side -->
+                <div class="w-full lg:w-1/2 space-y-10">
+                    <div class="reveal reveal-delay-1">
+                        <h3 class="font-serif text-4xl md:text-6xl mb-4">Sorona®</h3>
+                        <p class="text-mineral font-serif italic text-2xl mb-8">Active Polymer Matrix</p>
+                    </div>
+                    <p class="font-light text-slate text-base md:text-lg leading-relaxed max-w-md reveal reveal-delay-2">
+                        A beautiful, bio-based polymer offering mechanical stretch without the degradation associated with traditional elastane.
+                    </p>
+                    <!-- HUD Grid -->
+                    <div class="grid grid-cols-2 gap-6 pt-8 border-t border-white/10">
+                        <div class="p-4 border border-white/5 bg-white/5">
+                            <i class="ph ph-leaf text-mineral text-2xl mb-2"></i>
+                            <h5 class="text-[10px] uppercase tracking-widest text-white">37% Bio-Based</h5>
+                        </div>
+                        <div class="p-4 border border-white/5 bg-white/5">
+                            <i class="ph ph-arrows-out-line-horizontal text-mineral text-2xl mb-2"></i>
+                            <h5 class="text-[10px] uppercase tracking-widest text-white">Shape Memory</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Focus 2: FIBORAir -->
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-32">
+                <div class="w-full lg:w-1/2 reveal relative">
+                    <div class="p-3 md:p-5 bg-onyx/40 backdrop-blur-md border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden group">
+                        <div class="w-full aspect-[4/3] overflow-hidden relative">
+                            <img src="./1776628155.png" alt="FIBORAir Matrix" class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-100 group-hover:scale-105 transition-all duration-[2000ms] ease-out">
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 space-y-10 lg:pl-12">
+                    <div class="reveal reveal-delay-1">
+                        <h3 class="font-serif text-4xl md:text-6xl mb-4">FIBORAir</h3>
+                        <p class="text-mineral font-serif italic text-2xl mb-8">Aerated Weaving Technique</p>
+                    </div>
+                    <p class="font-light text-slate text-base md:text-lg leading-relaxed max-w-md reveal reveal-delay-2">
+                        Our flagship aerated weaving technique. By engineering microscopic respiratory chambers within a stunning ultra-lightweight yarn matrix.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 pt-8 border-t border-white/10">
+                        <div class="p-4 border border-white/5 bg-white/5">
+                            <i class="ph ph-thermometer-hot text-mineral text-2xl mb-2"></i>
+                            <h5 class="text-[10px] uppercase tracking-widest text-white">Thermal Adaptive</h5>
+                        </div>
+                        <div class="p-4 border border-white/5 bg-white/5">
+                            <i class="ph ph-wind text-mineral text-2xl mb-2"></i>
+                            <h5 class="text-[10px] uppercase tracking-widest text-white">Breathable</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Product Lookbook (High-end Editorial Grid) -->
+    <section id="lookbook" class="py-32 relative overflow-hidden bg-[#0A0A0A]">
+        
+        <!-- Elegant Heavy Knit Ambient Background (User Asset) -->
+        <div class="absolute inset-0 z-0 pointer-events-none opacity-30 mix-blend-screen bg-cover bg-center bg-fixed scale-110" style="background-image: url('./1776630296.png'); filter: blur(20px) contrast(1.2);"></div>
+        
+        <!-- Gradient masking to blend smoothly -->
+        <div class="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#0A0A0A] to-transparent z-0 pointer-events-none"></div>
+        <div class="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#0A0A0A] to-transparent z-0 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-[#0A0A0A]/20 z-0 pointer-events-none mix-blend-multiply"></div>
+
+        <div class="relative z-10 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto">
+            <div class="mb-32 reveal text-center">
+                <h2 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.1] mb-6 shimmer-text">
+                    Volume I:<br><span class="italic font-light text-white">Adaptation.</span>
+                </h2>
+                <div class="w-[1px] h-24 bg-mineral mx-auto mb-6 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-white/50 transform -translate-y-full hover:translate-y-full transition duration-1000"></div>
+                </div>
+                <p class="font-sans text-[10px] tracking-[0.4em] uppercase text-mineral font-bold">The Inaugural Collection</p>
+            </div>
+
+        <!-- Asymmetrical Editorial Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 mt-12 relative z-10 w-full max-w-[1400px] mx-auto">
+            
+            <!-- Look 1: Main Feature (Left Portrait) -->
+            <div class="md:col-span-5 relative group overflow-hidden reveal">
+                <div class="w-full aspect-[3/4] relative overflow-hidden bg-onyx/40 shadow-2xl border border-white/5">
+                    <img src="./1776629888.png" alt="Look 1 Main" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105">
+                    <!-- Overlay glass tag -->
+                    <div class="absolute bottom-6 left-6 font-sans text-xs tracking-[0.2em] uppercase text-white bg-[#0A0A0A]/60 backdrop-blur-md px-4 py-2 border border-white/10 group-hover:bg-[#0A0A0A]/80 transition-colors">
+                        001 / FIBORAir Shell
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column Staggered Layout -->
+            <div class="md:col-span-7 flex flex-col gap-6 md:gap-12">
+                
+                <!-- Look 2: Wide Landscape (Staggered Down) -->
+                <div class="relative group overflow-hidden reveal reveal-delay-1 md:mt-24">
+                    <div class="w-full aspect-[16/9] relative overflow-hidden bg-onyx/40 shadow-2xl border border-white/5">
+                        <img src="./1776629893.png" alt="Look 2" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105">
+                        <div class="absolute bottom-6 left-6 font-sans text-xs tracking-[0.2em] uppercase text-white bg-[#0A0A0A]/60 backdrop-blur-md px-4 py-2 border border-white/10 group-hover:bg-[#0A0A0A]/80 transition-colors">
+                            002 / Sorona® Trench
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Look 3 & 4: Split Underneath -->
+                <div class="grid grid-cols-2 gap-6 md:gap-12">
+                    <div class="relative group overflow-hidden reveal">
+                        <div class="w-full aspect-square relative overflow-hidden bg-onyx/40 shadow-xl border border-white/5">
+                            <img src="./1776629899.png" alt="Look 3" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105">
+                            <div class="absolute bottom-4 left-4 font-sans text-[10px] tracking-[0.2em] uppercase text-white bg-[#0A0A0A]/60 backdrop-blur-md px-3 py-1.5 border border-white/10">
+                                003 / Articulated Shell
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Look 4: Lifted up into the space -->
+                    <div class="relative group overflow-hidden reveal reveal-delay-2 md:-mt-16">
+                        <div class="w-full aspect-[3/4] relative overflow-hidden bg-onyx/40 shadow-xl border border-white/5">
+                            <img src="./1776629904.png" alt="Look 4" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105">
+                            <div class="absolute bottom-4 left-4 font-sans text-[10px] tracking-[0.2em] uppercase text-white bg-[#0A0A0A]/60 backdrop-blur-md px-3 py-1.5 border border-white/10">
+                                004 / Bio-Gold Weave
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+            <div class="text-center mt-32 reveal relative z-50">
+                <button onclick="openEmbargoModal()"
+                    class="px-8 py-4 border border-slate text-offwhite hover:text-white hover:border-mineral transition duration-500 font-sans tracking-widest text-xs uppercase relative overflow-hidden group cursor-pointer focus:outline-none">
+                    <span class="relative z-10 flex items-center gap-2">View Full Lookbook 
+                        <svg class="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </span>
+                    <div class="absolute inset-0 bg-mineral transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-0"></div>
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 5. LEADERSHIP & TEAM (Executive Profile) -->
+    <section id="team" class="py-32 md:py-56 bg-[#0A0A0A] border-t border-slate/10 overflow-hidden text-offwhite relative">
+        
+        <!-- Unified Flowing Silk Background (Same as other sections) -->
+        <div class="absolute inset-0 z-0 pointer-events-none opacity-10 md:opacity-20 mix-blend-screen bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80'); filter: grayscale(100%);"></div>
+        
+        <!-- Gradient masking to blend smoothly -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-[#0A0A0A] z-0 pointer-events-none"></div>
+
+        <div class="px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto relative z-10">
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24 reveal">
+                <div class="max-w-xl">
+                    <span class="font-sans text-[10px] tracking-[0.4em] text-mineral uppercase font-bold mb-4 block">Executive Perspective</span>
+                    <h2 class="font-serif text-5xl md:text-7xl leading-none shimmer-text">THE <span class="italic font-light">LEADERSHIP.</span></h2>
+                </div>
+                <p class="text-slate font-light max-w-sm md:text-right mt-8 md:mt-0 text-sm">
+                    A multidisciplinary collective bridging the gap between raw bio-engineering and high-fashion commercialization.
+                </p>
+            </div>
+
+            <!-- Founder Executive Profile -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-32 items-start mb-40 reveal">
+                <div class="lg:col-span-5 relative group">
+                    <div class="absolute -top-10 -left-10 w-40 h-40 border-t border-l border-mineral/20 -z-10"></div>
+                    <img src="./photo_2026-04-19_23-30-38.jpg" 
+                         alt="Mia Zhang" 
+                         class="w-full h-auto group-hover:scale-105 transition duration-1000" />
+                    <div class="absolute bottom-10 right-0 bg-mineral px-8 py-4">
+                        <p class="font-sans text-[10px] tracking-widest uppercase font-bold text-white">Director of Innovation</p>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-7 space-y-12">
+                    <div class="space-y-4">
+                        <h3 class="font-serif text-4xl md:text-5xl">Mia Zhang</h3>
+                        <p class="text-mineral font-sans text-xs tracking-[0.3em] uppercase font-bold">Founder of FIBORAir / Sorona® Executive Partner</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-slate/10 pt-12 text-sm text-slate font-light leading-relaxed">
+                        <div class="space-y-6">
+                            <p>
+                                <strong class="text-offwhite block mb-2 font-semibold">Strategic Origins</strong>
+                                Born in Taipei and educated at the National University of Singapore, Mia developed a synthesis of design aesthetics and institutional business systems.
+                            </p>
+                            <p>
+                                <strong class="text-offwhite block mb-2 font-semibold">Global Operations</strong>
+                                Over 9 years of industry tenure, including a 5-year tenure as Sales Director for a multinational family business, specializing in strategic channel expansion.
+                            </p>
+                        </div>
+                        <div class="space-y-6">
+                            <p>
+                                <strong class="text-offwhite block mb-2 font-semibold">Post-COVID Pivot</strong>
+                                Transitioning to the US, she expanded her focus to material investment and the integration of bio-based fibers like Sorona® into future textile trends.
+                            </p>
+                            <p>
+                                <strong class="text-offwhite block mb-2 font-semibold">Current Mandate</strong>
+                                As Executive Partner, Mia guides the brand’s commercialization strategy, ensuring every garment is built upon a foundation of fiber-driven design logic.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partner Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
+                <!-- CTO -->
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-16 reveal reveal-delay-1 group">
+                    <div class="w-72 h-72 md:w-[400px] md:h-[400px] shrink-0 transition duration-500 rounded-full overflow-hidden border-2 border-mineral/40 shadow-2xl">
+                        <img src="./1776632239.png" alt="Dr. Elias Thorne" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="text-center md:text-left mt-8 md:mt-4">
+                        <h4 class="font-serif text-4xl md:text-5xl text-offwhite mb-4">Dr. Elias Thorne</h4>
+                        <p class="text-mineral font-sans text-[10px] tracking-widest uppercase mb-8 font-bold">Chief Material Technologist</p>
+                        <p class="text-slate text-base font-light leading-relaxed max-w-sm">
+                            With over 12 years in molecular polymer engineering, Dr. Thorne leads the technical synthesis behind the FIBORAir matrix. His research in Torrance Lab focuses on the intersection of regenerative bio-polymers and adaptive thermal conductivity.
+                        </p>
+                    </div>
+                </div>
+                <!-- Creative Director -->
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-16 reveal reveal-delay-2 group">
+                    <div class="w-72 h-72 md:w-[400px] md:h-[400px] shrink-0 transition duration-500 rounded-full overflow-hidden border-2 border-mineral/40 shadow-2xl">
+                        <img src="./1776632245.png" alt="Isabella Conti" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="text-center md:text-left mt-8 md:mt-4">
+                        <h4 class="font-serif text-4xl md:text-5xl text-offwhite mb-4">Isabella Conti</h4>
+                        <p class="text-mineral font-sans text-[10px] tracking-widest uppercase mb-8 font-bold">Creative Systems Director</p>
+                        <p class="text-slate text-base font-light leading-relaxed max-w-sm">
+                            A veteran of Milanese high-couture, Isabella bridges the gap between raw scientific innovation and wearable silhouette logic.
+                        </p>
+                    </div>
+                </div>
+                <!-- Lead Architect -->
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-16 reveal reveal-delay-1 group">
+                    <div class="w-72 h-72 md:w-[400px] md:h-[400px] shrink-0 transition duration-500 rounded-full overflow-hidden border-2 border-mineral/40 shadow-2xl">
+                        <img src="./1776635958.png" alt="Julian Thorne" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700">
+                    </div>
+                    <div class="text-center md:text-left mt-8 md:mt-4">
+                        <h4 class="font-serif text-4xl md:text-5xl text-offwhite mb-4">Julian Thorne</h4>
+                        <p class="text-mineral font-sans text-[10px] tracking-widest uppercase mb-8 font-bold">Lead Garment Architect</p>
+                        <p class="text-slate text-base font-light leading-relaxed max-w-sm">
+                            Specializing in the structural physics of drape, Julian ensures that our biological fiber logic translates into sophisticated, permanent silhouettes.
+                        </p>
+                    </div>
+                </div>
+                <!-- Knit Designer -->
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-16 reveal reveal-delay-2 group">
+                    <div class="w-72 h-72 md:w-[400px] md:h-[400px] shrink-0 transition duration-500 rounded-full overflow-hidden border-2 border-mineral/40 shadow-2xl">
+                        <img src="./1776635963.png" alt="Elena Rossi" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700">
+                    </div>
+                    <div class="text-center md:text-left mt-8 md:mt-4">
+                        <h4 class="font-serif text-4xl md:text-5xl text-offwhite mb-4">Elena Rossi</h4>
+                        <p class="text-mineral font-sans text-[10px] tracking-widest uppercase mb-8 font-bold">Senior Knit Technologist</p>
+                        <p class="text-slate text-base font-light leading-relaxed max-w-sm">
+                            Elena directs the zero-waste weaving protocols for our aerated knit structures, pioneering the integration of Sorona® into hyper-recovery textures.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. R&D SYSTEM (Process Architecture) -->
+    <section id="process" class="py-32 md:py-56 bg-onyx text-offwhite relative overflow-hidden border-t border-white/5">
+        <div class="px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto">
+            <div class="max-w-4xl mb-32 reveal">
+                <span class="font-sans text-[10px] tracking-[0.4em] text-mineral uppercase font-bold mb-4 block">Research & Development System</span>
+                <h2 class="font-serif text-5xl md:text-6xl text-offwhite uppercase">The Fiber-to-Garment <span class="italic font-light text-slate">Logic.</span></h2>
+            </div>
+
+            <div class="relative space-y-32 md:space-y-48">
+                <!-- Vertical Line Spine -->
+                <div class="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-mineral/0 via-mineral/30 to-mineral/0 hidden md:block"></div>
+
+                <!-- Phase 01: Polymer -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center reveal reveal-left">
+                    <div class="md:col-span-7 relative group">
+                        <div class="overflow-hidden">
+                            <img src="./1776631285.png" alt="Polymer Phase" class="w-full h-[400px] object-cover group-hover:scale-110 transition duration-1000">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 border-b border-r border-mineral/20 -z-10"></div>
+                    </div>
+                    <div class="md:col-span-5 md:pl-12">
+                        <div class="bg-white/5 backdrop-blur-xl p-10 border border-white/10 relative">
+                            <h3 class="font-serif text-3xl mb-6 shimmer-text">Polymer Synthesis</h3>
+                            <p class="text-slate text-base font-light leading-relaxed">
+                                Refining bio-based ingredients into high-performance Sorona® polymers. We transform biological matter into a crystalline foundation for the future of textiles.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 02: Textile -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center reveal reveal-right">
+                    <div class="md:col-span-5 md:pr-12 order-2 md:order-1">
+                        <div class="bg-white/5 backdrop-blur-xl p-10 border border-white/10 relative text-right">
+                            <h3 class="font-serif text-3xl mb-6 shimmer-text">Textile Architecture</h3>
+                            <p class="text-slate text-base font-light leading-relaxed">
+                                Engineering yarn structures for specific elasticity and thermal regulation. Using our proprietary matrix-weaving technique to create a living, breathable material structure.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-7 relative group order-1 md:order-2">
+                        <div class="overflow-hidden">
+                            <img src="./1776631293.png" alt="Textile Phase" class="w-full h-[400px] object-cover group-hover:scale-110 transition duration-1000">
+                        </div>
+                        <div class="absolute -top-6 -left-6 w-32 h-32 border-t border-l border-mineral/20 -z-10"></div>
+                    </div>
+                </div>
+
+                <!-- Phase 03: Garment -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center reveal reveal-left">
+                    <div class="md:col-span-7 relative group">
+                        <div class="overflow-hidden">
+                            <img src="./1776631299.png" alt="Garment Phase" class="w-full h-[400px] object-cover group-hover:scale-110 transition duration-1000">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 border-b border-r border-mineral/20 -z-10"></div>
+                    </div>
+                    <div class="md:col-span-5 md:pl-12">
+                        <div class="bg-white/5 backdrop-blur-xl p-10 border border-white/10 relative">
+                            <h3 class="font-serif text-3xl mb-6 shimmer-text">Garment System</h3>
+                            <p class="text-slate text-base font-light leading-relaxed">
+                                Final design integration focusing on structural longevity and zero-waste patterns. Every garment is an engineered system, built foundationally for human performance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. SUSTAINABILITY (Material Impact Dashboard) -->
+    <section id="sustainability" class="py-32 md:py-56 bg-onyx text-offwhite relative overflow-hidden">
+        <!-- UHD Video Background -->
+        <div class="absolute inset-0 z-0">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-50 contrast-125 brightness-50">
+                <source src="./6583396-uhd_4096_2160_25fps.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A]"></div>
+        </div>
+
+        <div class="px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+                <div class="lg:col-span-12 mb-20 text-center reveal">
+                    <span class="font-sans text-[10px] tracking-[0.4em] text-mineral uppercase font-bold mb-4 block">Systemic Responsibility</span>
+                    <h2 class="font-serif text-6xl md:text-8xl shimmer-text">MATERIAL <span class="italic font-light">MANDATE.</span></h2>
+                </div>
+
+                <div class="lg:col-span-5 reveal">
+                    <div class="relative p-12 border border-white/10 bg-white/5 backdrop-blur-3xl">
+                        <!-- Decorative Mandate Seal -->
+                        <div class="absolute -top-12 -left-12 w-32 h-32 border border-mineral/30 rounded-full flex items-center justify-center text-[8px] tracking-[0.3em] font-bold text-mineral animate-spin-slow">
+                            <span class="p-4 text-center">FIBORAir 2026 MANDATE • BIOMATERIAL SYSTEM •</span>
+                        </div>
+                        
+                        <p class="text-slate font-light text-xl leading-relaxed mb-12">
+                            Sustainability is not a label—it is an engineered outcome. Our 2026 Material Mandate transforms environmental metrics into core product logic.
+                        </p>
+                        <ul class="space-y-8">
+                            <li class="flex items-center gap-6 group">
+                                <div class="w-2 h-2 rounded-full border border-mineral bg-mineral shadow-[0_0_10px_#2C4C3B] transition-transform duration-500 group-hover:scale-150"></div>
+                                <div>
+                                    <h4 class="font-sans text-[10px] tracking-widest uppercase font-bold text-offwhite group-hover:text-mineral transition">Environmental Integration</h4>
+                                    <p class="text-xs text-slate font-light mt-1">Reducing raw material extraction through bio-based synthesis.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-center gap-6 group">
+                                <div class="w-2 h-2 rounded-full border border-white/30 group-hover:border-white transition-colors duration-500"></div>
+                                <div>
+                                    <h4 class="font-sans text-[10px] tracking-widest uppercase font-bold text-white/50 group-hover:text-white transition">Structural Longevity</h4>
+                                    <p class="text-xs text-slate font-light mt-1">Eliminating planned obsolescence through fiber resilience.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8 reveal reveal-delay-2">
+                    <!-- Energy Metric -->
+                    <div class="bg-white/5 backdrop-blur-2xl border border-white/10 p-12 group hover:border-mineral/50 transition-all duration-700 relative overflow-hidden">
+                        <div class="absolute left-0 top-0 bottom-0 w-[4px] bg-mineral/20 h-0 group-hover:h-full transition-all duration-1000"></div>
+                        <div class="flex justify-between items-end mb-8">
+                            <h4 class="font-serif text-7xl md:text-8xl text-offwhite group-hover:text-mineral transition">-30%</h4>
+                            <span class="text-[8px] tracking-widest uppercase text-mineral font-bold mb-4">Reduction Target</span>
+                        </div>
+                        <p class="text-[10px] uppercase tracking-[0.3em] text-slate font-bold group-hover:text-white transition">Energy Consumption</p>
+                        <div class="mt-8 h-[1px] w-full bg-white/10 relative">
+                            <div class="absolute left-0 top-0 h-[1.5px] bg-mineral w-2/3 shadow-[0_0_10px_#2C4C3B]"></div>
+                        </div>
+                    </div>
+
+                    <!-- GHG Metric -->
+                    <div class="bg-white/5 backdrop-blur-2xl border border-white/10 p-12 group hover:border-white/50 transition-all duration-700 relative overflow-hidden">
+                        <div class="absolute left-0 top-0 bottom-0 w-[4px] bg-white/20 h-0 group-hover:h-full transition-all duration-1000"></div>
+                        <div class="flex justify-between items-end mb-8">
+                            <h4 class="font-serif text-7xl md:text-8xl text-offwhite group-hover:text-mineral transition">-63%</h4>
+                            <span class="text-[8px] tracking-widest uppercase text-mineral font-bold mb-4">CO2e Mitigation</span>
+                        </div>
+                        <p class="text-[10px] uppercase tracking-[0.3em] text-slate font-bold group-hover:text-white transition">GHG Emissions</p>
+                        <div class="mt-8 h-[1px] w-full bg-white/10 relative">
+                            <div class="absolute left-0 top-0 h-[1.5px] bg-white w-full opacity-50"></div>
+                        </div>
+                    </div>
+
+                    <!-- Chemical Metric -->
+                    <div class="md:col-span-2 bg-white/5 backdrop-blur-2xl border border-white/10 p-12 group hover:border-mineral transition-all duration-700 relative overflow-hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h4 class="font-serif text-8xl md:text-9xl text-offwhite group-hover:text-mineral transition">Zero</h4>
+                                <p class="text-[10px] uppercase tracking-[0.3em] text-slate font-bold mt-4 group-hover:text-white transition">Chemical Aqueous Dyeing</p>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="h-[1px] w-full bg-white/10 relative"><div class="absolute left-0 top-0 h-[1px] bg-mineral w-full animate-pulse"></div></div>
+                                <div class="h-[1px] w-full bg-white/10 relative opacity-50"><div class="absolute left-0 top-0 h-[1px] bg-mineral w-3/4"></div></div>
+                                <div class="h-[1px] w-full bg-white/10 relative opacity-20"><div class="absolute left-0 top-0 h-[1px] bg-mineral w-1/2"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. GLOBAL CONTACT (HQ Presence) -->
+    <section id="contact" class="py-32 md:py-56 bg-offwhite text-onyx relative overflow-hidden">
+        <div class="px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+                <div class="lg:col-span-7 reveal">
+                    <span class="font-sans text-[10px] tracking-[0.4em] text-mineral uppercase font-bold mb-8 block">Global Access</span>
+                    <h2 class="font-serif text-5xl md:text-8xl leading-[0.9] mb-12 uppercase">Connect with <br><span class="italic font-light text-mineral">SoroFib.</span></h2>
+                    
+                    <div class="mt-20">
+                        <h3 class="font-sans text-[10px] tracking-[0.5em] uppercase font-bold text-onyx/40 mb-6">Headquarters | Torrance , CA</h3>
+                        <p class="font-serif text-3xl md:text-5xl leading-tight">3501 Santa Monica Torrance<br>Los Angeles, CA 90501</p>
+                        <p class="mt-12 font-sans text-xs tracking-widest text-onyx/60 uppercase">Institutional Verification and On-Site Laboratory Protocol Required for Admission.</p>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-5 reveal reveal-delay-2">
+                    <div class="relative group overflow-hidden border border-onyx/10">
+                        <!-- Lab Background Image -->
+                        <div class="absolute inset-0 z-0">
+                            <img src="./1776635304.png" alt="Torrance Lab" class="w-full h-full object-cover group-hover:scale-110 transition duration-1000">
+                            <div class="absolute inset-0 bg-onyx/70 backdrop-blur-[2px]"></div>
+                        </div>
+
+                        <div class="relative z-10 p-12">
+                            <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-80 transition text-offwhite">
+                                <i class="ph ph-shield-check text-4xl"></i>
+                            </div>
+                            <h4 class="font-serif text-2xl mb-8 text-offwhite">Executive Inquiry</h4>
+                            <p class="text-offwhite/70 font-light text-sm mb-12 italic">Established for commercial partners, material scientists, and professional garment architects.</p>
+                            <a href="mailto:partners@sorofib.com" class="inline-flex items-center gap-4 font-sans text-[10px] tracking-[0.3em] font-bold uppercase py-4 px-10 bg-offwhite text-onyx hover:bg-mineral hover:text-offwhite transition-all duration-500">
+                                Establish Protocol <i class="ph ph-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FOOTER (Legacy & Network) -->
+    <footer class="bg-onyx text-offwhite py-32 border-t border-slate/10">
+        <div class="px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-24 mb-32">
+                <div class="lg:col-span-6 reveal">
+                    <h2 class="font-serif text-6xl mb-8">SoroFib</h2>
+                    <p class="text-slate font-light text-xl max-w-sm mb-12">Building an integrated product system from fiber to contemporary garment.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-12">
+                            <div>
+                                <h4 class="text-[10px] uppercase tracking-widest text-mineral font-bold mb-4">Torrance Lab & HQ</h4>
+                                <p class="text-slate text-sm font-light leading-relaxed">
+                                    3501 Santa Monica Torrance<br>
+                                    Los Angeles, CA 90501<br>
+                                    United States
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-[10px] uppercase tracking-widest text-mineral font-bold mb-4">Commercial Inquiries</h4>
+                                <a href="mailto:press@sorofib.com" class="block text-slate text-sm font-light hover:text-white transition">press@sorofib.com</a>
+                                <a href="mailto:partners@sorofib.com" class="block text-slate text-sm font-light hover:text-white transition">partners@sorofib.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-12 text-left reveal reveal-delay-2">
+                    <div>
+                        <h4 class="text-[10px] uppercase tracking-[0.4em] text-mineral font-bold mb-8">Social Channels</h4>
+                        <ul class="space-y-4 font-sans text-xs tracking-widest uppercase">
+                            <li class="text-slate transition-colors">Instagram</li>
+                            <li class="text-slate transition-colors">LinkedIn</li>
+                            <li class="text-slate transition-colors">Vimeo</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-[10px] uppercase tracking-[0.4em] text-mineral font-bold mb-8">Global Logistics</h4>
+                        <ul class="space-y-4 font-sans text-xs tracking-widest uppercase">
+                            <li class="text-slate transition-colors">Shipping Policy</li>
+                            <li class="text-slate transition-colors">Returns</li>
+                            <li class="text-slate transition-colors">Tracking</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-[10px] uppercase tracking-[0.4em] text-mineral font-bold mb-8">Digital Hub</h4>
+                        <ul class="space-y-4 font-sans text-xs tracking-widest uppercase">
+                            <li class="text-slate transition-colors">Privacy</li>
+                            <li class="text-slate transition-colors">Institutional</li>
+                            <li class="text-slate transition-colors">Press Kit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-12 border-t border-slate/10 flex flex-col md:flex-row justify-between items-center text-[9px] text-slate tracking-[0.3em] uppercase font-bold reveal reveal-delay-2">
+                <p>&copy; 2026 SOROFIB INNOVATION. A FIBORAir ENTERPRISE.</p>
+                <div class="flex gap-8 mt-6 md:mt-0">
+                    <span>Instagram</span>
+                    <span>LinkedIn</span>
+                    <span>Legal</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Exclusive Restriced Access Modal -->
+    <div id="embargoModal" class="fixed inset-0 z-[200] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-700">
+        <!-- Glass Backdrop -->
+        <div class="absolute inset-0 bg-[#0A0A0A]/90 backdrop-blur-md" onclick="closeEmbargoModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative z-10 bg-[#050505]/80 backdrop-blur-xl border border-white/10 p-8 md:p-16 max-w-2xl mx-4 text-center shadow-[0_0_80px_rgba(44,76,59,0.3)] transform scale-95 transition-transform duration-700" id="embargoContent">
+            
+            <div class="w-[1px] h-16 bg-mineral mx-auto mb-8 relative overflow-hidden">
+                <div class="absolute inset-0 bg-white/50 transform -translate-y-full hover:translate-y-full transition duration-1000"></div>
+            </div>
+            
+            <h4 class="font-sans text-[10px] tracking-[0.4em] uppercase text-mineral mb-6">Restricted Access</h4>
+            <h2 class="font-serif text-4xl md:text-5xl text-white mb-8 leading-tight">
+                Volume I is currently under <br><span class="italic font-light shimmer-text">Embargo.</span>
+            </h2>
+            
+            <p class="font-light text-slate text-sm leading-relaxed mb-12 max-w-md mx-auto">
+                The full Adaptation Collection is exclusively available to verified brand partners and institutional buyers. Please establish contact with our executive team for secure access credentials.
+            </p>
+            
+            <button onclick="closeEmbargoModal()" class="px-8 py-3 border border-white/20 hover:border-mineral text-offwhite hover:text-white transition-colors duration-300 font-sans text-[10px] tracking-widest uppercase">
+                Acknowledge
+            </button>
+            
+            <!-- HUD Corner UI Assets -->
+            <div class="absolute top-4 left-4 w-4 h-[1px] bg-white/20"></div>
+            <div class="absolute top-4 left-4 w-[1px] h-4 bg-white/20"></div>
+            <div class="absolute bottom-4 right-4 w-4 h-[1px] bg-white/20"></div>
+            <div class="absolute bottom-4 right-4 w-[1px] h-4 bg-white/20"></div>
+        </div>
+    </div>
+
+    <!-- Intersection Observer & Scroll UI Logic -->
+    <script>
+        // Modal State Logic
+        const modal = document.getElementById('embargoModal');
+        const modalContent = document.getElementById('embargoContent');
+        
+        function openEmbargoModal() {
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+        }
+        
+        function closeEmbargoModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalContent.classList.add('scale-95');
+            modalContent.classList.remove('scale-100');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Haute Couture Nav Scroll Effect
+            const mainNav = document.getElementById('mainNav');
+            const silkThread = document.getElementById('silkThread');
+            const navBg = document.getElementById('navBg');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    mainNav.classList.add('nav-scrolled');
+                    navBg.classList.replace('bg-onyx/60', 'bg-onyx/90');
+                    silkThread.classList.remove('opacity-0', 'scale-x-0');
+                    silkThread.classList.add('opacity-70', 'scale-x-100');
+                } else {
+                    mainNav.classList.remove('nav-scrolled');
+                    navBg.classList.replace('bg-onyx/90', 'bg-onyx/60');
+                    silkThread.classList.add('opacity-0', 'scale-x-0');
+                    silkThread.classList.remove('opacity-70', 'scale-x-100');
+                }
+            });
+
+            // Intersection Observer for scroll animations
+            const reveals = document.querySelectorAll('.reveal');
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -10px 0px"
+            });
+
+            reveals.forEach(reveal => revealOnScroll.observe(reveal));
+        });
+    </script>
+</body>
+
+</html>
