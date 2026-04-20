@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./Adobe%20Express%20-%20file.png">
+    <title>Editorial Lookbook | SoroFib Executive Material Innovation</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        onyx: '#0A0A0A',
+                        mineral: '#2C4C3B',
+                        slate: '#8E9B96',
+                        offwhite: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Bodoni Moda', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0A0A0A;
+            color: #F5F5F5;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .shimmer-text {
+            background: linear-gradient(120deg, #F5F5F5 30%, #a4b5af 45%, #ffffff 50%, #a4b5af 55%, #F5F5F5 70%);
+            background-size: 250% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shine 8s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                background-position: 0% center;
+            }
+
+            50% {
+                background-position: 100% center;
+            }
+
+            100% {
+                background-position: 0% center;
+            }
+        }
+
+        /* Scroll Reveals */
+        .reveal {
+            opacity: 0;
+            transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+            transform: translateY(60px);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        .hud-panel {
+            background: rgba(10, 10, 10, 0.5);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .hud-stat-bar {
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hud-stat-fill {
+            position: absolute;
+            height: 100%;
+            background: #2C4C3B;
+            width: 0;
+            transition: width 2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .reveal.active .hud-stat-fill {
+            width: var(--stat-val);
+        }
+
+        .editorial-section {
+            padding: 10vh 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .parallax-bg {
+            transition: transform 0.1s ease-out;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Minimal HUD Navigation -->
+    <nav class="fixed w-full top-0 z-[100] px-8 py-6 flex justify-between items-center mix-blend-difference">
+        <a href="index.html" class="text-xl font-serif tracking-[0.3em] uppercase shimmer-text italic">
+            SoroFib
+        </a>
+        <div class="flex items-center gap-8">
+            <span class="text-[8px] uppercase tracking-[0.5em] text-slate hidden md:block">Institutional Asset Hub / Ver
+                2.0</span>
+            <a href="index.html"
+                class="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] font-bold text-slate hover:text-white transition-colors group">
+                <i class="ph ph-arrow-left text-xl"></i>
+                <span>Return to Dashboard</span>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Page Title Hero -->
+        <section class="h-screen flex items-center justify-center relative overflow-hidden bg-onyx">
+            <div class="absolute inset-0 z-0">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-40">
+                    <source src="./cacd8b03-5158-41ae-b8cc-9eb7fbbfc99b.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-onyx/40 mix-blend-multiply"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-onyx via-transparent to-onyx"></div>
+            </div>
+
+            <div class="relative z-10 text-center px-6">
+                <span
+                    class="text-mineral font-sans tracking-[0.8em] uppercase text-[10px] font-bold block mb-8 reveal">Digital
+                    Archive 01 / Adaptation</span>
+                <h1 class="font-serif text-6xl md:text-[10rem] leading-none tracking-tighter shimmer-text mb-12">
+                    ADAPTATION<br>
+                    <span
+                        class="italic font-light opacity-80 uppercase tracking-widest text-4xl md:text-8xl">Archive.</span>
+                </h1>
+
+                <div class="max-w-xl mx-auto reveal">
+                    <p class="text-slate font-light text-sm md:text-base leading-relaxed italic">
+                        "As a fashion brand, it is essential for our clients to see the garments we design. Many of our
+                        clients are primarily interested in understanding our aesthetic and product direction.
+                        Therefore, we present a curated selection of modern, fashion-forward womenswear to showcase our
+                        design language."
+                    </p>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+                    <span class="text-[8px] tracking-[0.4em] uppercase text-slate">Archive Overview</span>
+                    <div class="w-[1px] h-12 bg-gradient-to-b from-mineral to-transparent"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Filter Bar -->
+        <div class="sticky top-0 z-[80] bg-onyx/80 backdrop-blur-xl border-y border-white/5 py-6 overflow-x-auto">
+            <div class="container mx-auto px-6 flex items-center justify-center gap-8 md:gap-16 whitespace-nowrap">
+                <button onclick="filterCategory('all')"
+                    class="filter-btn active text-[10px] uppercase font-bold tracking-[0.3em] text-slate hover:text-white transition-all">All
+                    Archive</button>
+                <button onclick="filterCategory('soroshell')"
+                    class="filter-btn text-[10px] uppercase font-bold tracking-[0.3em] text-slate hover:text-white transition-all">SoroShell</button>
+                <button onclick="filterCategory('biomatrix')"
+                    class="filter-btn text-[10px] uppercase font-bold tracking-[0.3em] text-slate hover:text-white transition-all">BioMatrix</button>
+                <button onclick="filterCategory('knitlogic')"
+                    class="filter-btn text-[10px] uppercase font-bold tracking-[0.3em] text-slate hover:text-white transition-all">KnitLogic</button>
+                <button onclick="filterCategory('luxesync')"
+                    class="filter-btn text-[10px] uppercase font-bold tracking-[0.3em] text-slate hover:text-white transition-all">LuxeSync</button>
+            </div>
+        </div>
+
+        <!-- Look 001: SoroShell Core (Image Right, HUD Left) -->
+        <section class="editorial-section min-h-screen flex items-center look-section" data-category="soroshell">
+            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+
+                <div class="md:col-span-4 reveal">
+                    <div class="hud-panel p-8 md:p-12 relative overflow-hidden">
+                        <span class="text-mineral text-[10px] font-bold tracking-[0.4em] uppercase mb-4 block"> Garment
+                            Architecture</span>
+                        <h2 class="text-3xl font-serif text-white mb-8 italic">SoroShell Core</h2>
+                        <p class="text-slate text-sm font-light leading-relaxed mb-12">
+                            The foundation of the Adaptation series. A high-density polymer weave optimized for urban
+                            resilience and molecular durability.
+                        </p>
+
+                        <!-- HUD Stats -->
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Thermal Logic</span>
+                                    <span>98%</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 98%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Structural Memory</span>
+                                    <span>84%</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 84%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-8 reveal">
+                    <div class="relative group overflow-hidden shadow-2xl border border-white/5">
+                        <img src="./SoroShell Core.png" alt="SoroShell Core"
+                            class="w-full h-auto object-cover look-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Look 005: Avant Shell (Image Left, HUD Right) -->
+        <section class="editorial-section min-h-screen flex items-center bg-[#050505] look-section"
+            data-category="soroshell">
+            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center flex-row-reverse">
+
+                <div class="md:col-span-8 order-2 md:order-1 reveal">
+                    <div class="relative group overflow-hidden shadow-2xl border border-white/5">
+                        <img src="./Avant Shell V2.png" alt="Avant Shell" class="w-full h-auto object-cover look-img">
+                    </div>
+                </div>
+
+                <div class="md:col-span-4 order-1 md:order-2 reveal">
+                    <div class="hud-panel p-8 md:p-12 relative overflow-hidden">
+                        <span class="text-mineral text-[10px] font-bold tracking-[0.4em] uppercase mb-4 block">System
+                            Specification</span>
+                        <h2 class="text-3xl font-serif text-white mb-8 italic">Avant Shell V2</h2>
+                        <p class="text-slate text-sm font-light leading-relaxed mb-12">
+                            A master study in structural rigidity using Sorona® high-memory polymers. This high-neck
+                            shell features integrated thermal vents and a zero-waste architectural seam system.
+                        </p>
+
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Flex Logic</span>
+                                    <span>92%</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 92%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Molecule Purity</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Look 002: Sorona Trench (Image Right, HUD Left) -->
+        <section class="editorial-section min-h-screen flex items-center look-section" data-category="biomatrix">
+            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+
+                <div class="md:col-span-4 reveal">
+                    <div class="hud-panel p-8 md:p-12 relative overflow-hidden">
+                        <span class="text-mineral text-[10px] font-bold tracking-[0.4em] uppercase mb-4 block">Climate
+                            Protocol</span>
+                        <h2 class="text-3xl font-serif text-white mb-8 italic">Sorona® Trench</h2>
+                        <p class="text-slate text-sm font-light leading-relaxed mb-12">
+                            Fluid silhouette engineered with moisture-wicking bio-polymers for adaptive climate
+                            response. The textile logic prioritizes organic drape without sacrificing industrial-grade
+                            protection.
+                        </p>
+
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Hydro Dynamics</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 88%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Breathability Index</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 95%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-8 reveal">
+                    <div class="relative group overflow-hidden shadow-2xl border border-white/5">
+                        <img src="./Sorona® Trench.png" alt="Sorona Trench" class="w-full h-auto object-cover look-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Look 006: Matrix Drape (Image Left, HUD Right) -->
+        <section class="editorial-section min-h-screen flex items-center bg-[#050505] look-section"
+            data-category="luxesync">
+            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center flex-row-reverse">
+
+                <div class="md:col-span-8 order-2 md:order-1 reveal">
+                    <div class="relative group overflow-hidden shadow-2xl border border-white/5">
+                        <img src="./Matrix Drape.png" alt="Matrix Drape" class="w-full h-auto object-cover look-img">
+                    </div>
+                </div>
+
+                <div class="md:col-span-4 order-1 md:order-2 reveal">
+                    <div class="hud-panel p-8 md:p-12 relative overflow-hidden">
+                        <span class="text-mineral text-[10px] font-bold tracking-[0.4em] uppercase mb-4 block">Molecular
+                            Fluidity</span>
+                        <h2 class="text-3xl font-serif text-white mb-8 italic">Matrix Drape</h2>
+                        <p class="text-slate text-sm font-light leading-relaxed mb-12">
+                            Organic fluidity meets synthetic precision. An asymmetrical bio-silk drape engineered to
+                            respond to biometric movement while maintaining molecular-level durability and structural
+                            integrity.
+                        </p>
+
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Adaptive Flex</span>
+                                    <span>97%</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 97%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Material Longevity</span>
+                                    <span>High</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 90%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="md:col-span-10 md:col-start-2 reveal mt-32 look-section" data-category="biomatrix">
+            <div class="look-card aspect-[16/9] group">
+                <img src="./1776681074.png" alt="Look 007" class="look-img w-full h-full object-cover">
+                <div
+                    class="absolute bottom-8 left-8 bg-onyx/60 backdrop-blur-md px-6 py-3 border border-white/10 group-hover:border-mineral transition-colors">
+                    <span class="text-[10px] uppercase tracking-widest block mb-2">Look 007 / Tech Trench</span>
+                    <p
+                        class="text-[9px] text-slate font-light max-w-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                        Multi-layer tech-trench utilizing aerated weaving techniques to optimize thermal regulation.
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+        </section>
+
+        <!-- Look 009: Thermal Veil (Image Left, HUD Right) -->
+        <section class="editorial-section min-h-screen flex items-center bg-[#050505] look-section"
+            data-category="luxesync">
+            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center flex-row-reverse">
+                <div class="md:col-span-8 order-2 md:order-1 reveal">
+                    <div class="relative group overflow-hidden shadow-2xl border border-white/5">
+                        <img src="./Thermal Veil.png" alt="Thermal Veil" class="w-full h-auto object-cover look-img">
+                    </div>
+                </div>
+                <div class="md:col-span-4 order-1 md:order-2 reveal">
+                    <div class="hud-panel p-8 md:p-12 relative overflow-hidden">
+                        <span
+                            class="text-mineral text-[10px] font-bold tracking-[0.4em] uppercase mb-4 block">Atmospheric
+                            Defense</span>
+                        <h2 class="text-3xl font-serif text-white mb-8 italic">Thermal Veil</h2>
+                        <p class="text-slate text-sm font-light leading-relaxed mb-12">
+                            An ultra-lightweight translucent layer designed for high-altitude moisture management. The
+                            'Veil' architecture utilizes variable-density bio-polymers to create a second skin that
+                            breathes as the wearer moves.
+                        </p>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Breathability Logic</span>
+                                    <span>96%</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 96%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Moisture HUD</span>
+                                    <span>High</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 90%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Look 010: Aerated Knit (Image Right, HUD Left) -->
+        <section class="editorial-section min-h-screen flex items-center look-section" data-category="knitlogic">
+            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-4 reveal">
+                    <div class="hud-panel p-8 md:p-12 relative overflow-hidden">
+                        <span class="text-mineral text-[10px] font-bold tracking-[0.4em] uppercase mb-4 block">Molecular
+                            Weaving</span>
+                        <h2 class="text-3xl font-serif text-white mb-8 italic">Aerated Knit</h2>
+                        <p class="text-slate text-sm font-light leading-relaxed mb-12">
+                            Engineered using zero-waste 3D knitting technology. This garment logic integrates aerated
+                            channels directly into the fiber matrix, providing superior insulation while remaining
+                            nearly weightless.
+                        </p>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Insulation Rating</span>
+                                    <span>91%</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 91%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Zero-Waste Logic</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-8 reveal">
+                    <div class="relative group overflow-hidden shadow-2xl border border-white/5">
+                        <img src="./Aerated Knit.png" alt="Aerated Knit" class="w-full h-auto object-cover look-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Look 011: Flux Overcoat (Image Left, HUD Right) -->
+        <section class="editorial-section min-h-screen flex items-center bg-[#050505] look-section"
+            data-category="biomatrix">
+            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center flex-row-reverse">
+                <div class="md:col-span-8 order-2 md:order-1 reveal">
+                    <div class="relative group overflow-hidden shadow-2xl border border-white/5">
+                        <img src="./Flux Overcoat.png" alt="Flux Overcoat" class="w-full h-auto object-cover look-img">
+                    </div>
+                </div>
+                <div class="md:col-span-4 order-1 md:order-2 reveal">
+                    <div class="hud-panel p-8 md:p-12 relative overflow-hidden">
+                        <span class="text-mineral text-[10px] font-bold tracking-[0.4em] uppercase mb-4 block">Security
+                            Architecture</span>
+                        <h2 class="text-3xl font-serif text-white mb-8 italic">Flux Overcoat</h2>
+                        <p class="text-slate text-sm font-light leading-relaxed mb-12">
+                            A heavy-duty adaptive overcoat built for industrial environments. Reinforced with
+                            molecularly fused shielding, the Flux architecture offers unprecedented protection against
+                            biometric environmental stressors.
+                        </p>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Shield Integrity</span>
+                                    <span>94%</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 94%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Impact Resilience</span>
+                                    <span>High</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 90%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Look 012: Bio-Mesh Bodysuit (Image Right, HUD Left) -->
+        <section class="editorial-section min-h-screen flex items-center look-section" data-category="luxesync">
+            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-4 reveal">
+                    <div class="hud-panel p-8 md:p-12 relative overflow-hidden">
+                        <span class="text-mineral text-[10px] font-bold tracking-[0.4em] uppercase mb-4 block">Interface
+                            Synchrony</span>
+                        <h2 class="text-3xl font-serif text-white mb-8 italic">Bio-Mesh Bodysuit</h2>
+                        <p class="text-slate text-sm font-light leading-relaxed mb-12">
+                            The ultimate biometric interface layer. Utilizing a complex mesh of bio-synthetic fibers,
+                            this bodysuit provides real-time thermal balancing and compression support for high-stakes
+                            movement.
+                        </p>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Compressive Logic</span>
+                                    <span>89%</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 89%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Interface Sync</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 95%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-8 reveal">
+                    <div class="relative group overflow-hidden shadow-2xl border border-white/5">
+                        <img src="./Bio-Mesh Bodysuit.png" alt="Bio-Mesh Bodysuit"
+                            class="w-full h-auto object-cover look-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Look 013: Kinetic Shell (Image Left, HUD Right) -->
+        <section class="editorial-section min-h-screen flex items-center bg-[#050505] look-section"
+            data-category="soroshell">
+            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center flex-row-reverse">
+                <div class="md:col-span-8 order-2 md:order-1 reveal">
+                    <div class="relative group overflow-hidden shadow-2xl border border-white/5">
+                        <img src="./Kinetic Shell.png" alt="Kinetic Shell" class="w-full h-auto object-cover look-img">
+                    </div>
+                </div>
+                <div class="md:col-span-4 order-1 md:order-2 reveal">
+                    <div class="hud-panel p-8 md:p-12 relative overflow-hidden">
+                        <span class="text-mineral text-[10px] font-bold tracking-[0.4em] uppercase mb-4 block">Tactical
+                            Geometry</span>
+                        <h2 class="text-3xl font-serif text-white mb-8 italic">Kinetic Shell</h2>
+                        <p class="text-slate text-sm font-light leading-relaxed mb-12">
+                            A pursuit-grade shell designed for extreme kinetic mobility. Featuring laser-cut
+                            articulation points and a dynamic polymer membrane that tightens upon impact to protect
+                            structural integrity.
+                        </p>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Kinetic Flex</span>
+                                    <span>98%</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 98%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Reactor Time</span>
+                                    <span>Ultra-Fast</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 95%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Look 014: Structural Finale (Image Right, HUD Left) -->
+        <section class="editorial-section min-h-screen flex items-center look-section" data-category="luxesync">
+            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-4 reveal">
+                    <div class="hud-panel p-8 md:p-12 relative overflow-hidden">
+                        <span class="text-mineral text-[10px] font-bold tracking-[0.4em] uppercase mb-4 block">Peak
+                            Synthesis</span>
+                        <h2 class="text-3xl font-serif text-white mb-8 italic">Structural Finale</h2>
+                        <p class="text-slate text-sm font-light leading-relaxed mb-12">
+                            The culmination of the Adaptation archive. This architectural masterpiece synthesizes all
+                            SoroFib fiber technologies into a single, cohesive garment system that represents the future
+                            of material innovation.
+                        </p>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Innovation Index</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 100%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[8px] uppercase tracking-widest mb-2">
+                                    <span>Brand Logic</span>
+                                    <span>Absolute</span>
+                                </div>
+                                <div class="hud-stat-bar">
+                                    <div class="hud-stat-fill" style="--stat-val: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-8 reveal">
+                    <div class="relative group overflow-hidden shadow-2xl border border-white/5">
+                        <img src="./Structural Finale.png" alt="Structural Finale"
+                            class="w-full h-auto object-cover look-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Finale Section -->
+        <section class="py-56 bg-onyx text-center relative overflow-hidden">
+            <div
+                class="absolute inset-0 opacity-10 bg-[url('./1776630296.png')] bg-fixed bg-cover opacity-30 mix-blend-overlay blur-sm">
+            </div>
+
+            <div class="relative z-10 p-6">
+                <h2 class="font-serif text-4xl md:text-6xl italic text-slate mb-12 reveal">End of Archive Series 01.
+                </h2>
+                <div class="flex flex-col md:flex-row justify-center gap-6 reveal">
+                    <a href="index.html"
+                        class="px-12 py-5 bg-mineral text-white font-sans tracking-[0.4em] uppercase text-xs hover:bg-white hover:text-onyx transition-all duration-500 shadow-2xl">
+                        Return to Interface
+                    </a>
+                    <a href="index.html#contact"
+                        class="px-12 py-5 border border-white/20 text-offwhite font-sans tracking-[0.4em] uppercase text-xs hover:border-white transition-all duration-500">
+                        Institutional Inquiry
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 bg-onyx border-t border-white/5 text-center relative z-10">
+        <p class="text-[10px] text-slate tracking-[0.4em] uppercase">
+            &copy; 2026 SOROFIB INNOVATION. <br class="md:hidden"> ARCHIVE STATUS: COMPLETE. FOUNDED IN 2023.
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Intersection Observer with delayed stat animation
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // No unobserve yet to allow re-animating if needed (optional)
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
+
+            reveals.forEach(reveal => revealOnScroll.observe(reveal));
+
+            // Category Filter Logic
+            window.filterCategory = function (category) {
+                const sections = document.querySelectorAll('.look-section');
+                const buttons = document.querySelectorAll('.filter-btn');
+
+                // Update buttons
+                buttons.forEach(btn => {
+                    if (btn.innerText.toLowerCase().includes(category)) {
+                        btn.classList.add('text-offwhite', 'active');
+                        btn.classList.remove('text-slate');
+                    } else if (category === 'all' && btn.innerText.toLowerCase().includes('all')) {
+                        btn.classList.add('text-offwhite', 'active');
+                        btn.classList.remove('text-slate');
+                    } else {
+                        btn.classList.remove('text-offwhite', 'active');
+                        btn.classList.add('text-slate');
+                    }
+                });
+
+                // Filter sections
+                sections.forEach(section => {
+                    if (category === 'all' || section.getAttribute('data-category') === category) {
+                        section.style.display = 'flex';
+                        setTimeout(() => {
+                            section.style.opacity = '1';
+                            section.style.pointerEvents = 'auto';
+                        }, 10);
+                    } else {
+                        section.style.opacity = '0';
+                        section.style.pointerEvents = 'none';
+                        setTimeout(() => {
+                            section.style.display = 'none';
+                        }, 500);
+                    }
+                });
+
+                // Scroll to filter bar if needed
+                if (category !== 'all') {
+                    document.querySelector('.sticky').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            };
+
+            // Check URL parameters for category filtering
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialCategory = urlParams.get('category');
+            if (initialCategory) {
+                setTimeout(() => {
+                    filterCategory(initialCategory);
+                }, 100);
+            }
+        });
+    </script>
+
+    <style>
+        .filter-btn.active {
+            border-bottom: 2px solid #2C4C3B;
+            padding-bottom: 4px;
+        }
+    </style>
+</body>
+
+</html>

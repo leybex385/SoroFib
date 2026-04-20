@@ -321,7 +321,11 @@
             <div class="hidden md:flex items-center space-x-12">
                 <a href="#philosophy" class="nav-link relative">Philosophy<div class="nav-underline"></div></a>
                 <a href="#technology" class="nav-link relative">Technology<div class="nav-underline"></div></a>
-                <a href="#lookbook" class="nav-link relative">Collections<div class="nav-underline"></div></a>
+                <button onclick="toggleCollectionPortal()" class="nav-link relative flex items-center gap-2">
+                    Collections
+                    <i class="ph ph-caret-down text-[8px] transition-transform duration-500" id="collectionsCaret"></i>
+                    <div class="nav-underline"></div>
+                </button>
                 <a href="#team" class="nav-link relative">Leadership<div class="nav-underline"></div></a>
                 <a href="#process" class="nav-link relative">R&D System<div class="nav-underline"></div></a>
                 <a href="#sustainability" class="nav-link relative">Impact<div class="nav-underline"></div></a>
@@ -521,7 +525,8 @@
             <!-- Section Header -->
             <div class="mb-32 reveal text-center">
                 <h2 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.1] mb-6 shimmer-text">Fabric
-                    <br><span class="italic font-light">Innovations.</span></h2>
+                    <br><span class="italic font-light">Innovations.</span>
+                </h2>
                 <div class="w-[1px] h-24 bg-mineral mx-auto mb-6"></div>
                 <p class="font-sans text-[10px] tracking-[0.4em] uppercase text-mineral">Engineered Textures</p>
             </div>
@@ -563,20 +568,20 @@
                 </div>
             </div>
 
-            <!-- Focus 2: FIBORAir -->
+            <!-- Focus 2: SoroFib -->
             <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-32">
                 <div class="w-full lg:w-1/2 reveal relative">
                     <div
                         class="p-3 md:p-5 bg-onyx/40 backdrop-blur-md border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden group">
                         <div class="w-full aspect-[4/3] overflow-hidden relative">
-                            <img src="./1776628155.png" alt="FIBORAir Matrix"
+                            <img src="./1776628155.png" alt="SoroFib Matrix"
                                 class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-100 group-hover:scale-105 transition-all duration-[2000ms] ease-out">
                         </div>
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2 space-y-10 lg:pl-12">
                     <div class="reveal reveal-delay-1">
-                        <h3 class="font-serif text-4xl md:text-6xl mb-4">FIBORAir</h3>
+                        <h3 class="font-serif text-4xl md:text-6xl mb-4">SoroFib</h3>
                         <p class="text-mineral font-serif italic text-2xl mb-8">Aerated Weaving Technique</p>
                     </div>
                     <p
@@ -643,7 +648,7 @@
                         <!-- Overlay glass tag -->
                         <div
                             class="absolute bottom-6 left-6 font-sans text-xs tracking-[0.2em] uppercase text-white bg-[#0A0A0A]/60 backdrop-blur-md px-4 py-2 border border-white/10 group-hover:bg-[#0A0A0A]/80 transition-colors">
-                            001 / FIBORAir Shell
+                            001 / SoroFib Shell
                         </div>
                     </div>
                 </div>
@@ -669,7 +674,7 @@
                         <div class="relative group overflow-hidden reveal">
                             <div
                                 class="w-full aspect-square relative overflow-hidden bg-onyx/40 shadow-xl border border-white/5">
-                                <img src="./1776629899.png" alt="Look 3"
+                                <img src="./1776666134.png" alt="Look 3"
                                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105">
                                 <div
                                     class="absolute bottom-4 left-4 font-sans text-[10px] tracking-[0.2em] uppercase text-white bg-[#0A0A0A]/60 backdrop-blur-md px-3 py-1.5 border border-white/10">
@@ -695,9 +700,9 @@
             </div>
 
             <div class="text-center mt-32 reveal relative z-50">
-                <button onclick="openEmbargoModal()"
-                    class="px-8 py-4 border border-slate text-offwhite hover:text-white hover:border-mineral transition duration-500 font-sans tracking-widest text-xs uppercase relative overflow-hidden group cursor-pointer focus:outline-none">
-                    <span class="relative z-10 flex items-center gap-2">View Full Lookbook
+                <a href="./lookbook.html"
+                    class="inline-block px-8 py-4 border border-slate text-offwhite hover:text-white hover:border-mineral transition duration-500 font-sans tracking-widest text-xs uppercase relative overflow-hidden group cursor-pointer focus:outline-none">
+                    <span class="relative z-10 flex items-center gap-2">Access Series Archive
                         <svg class="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -707,7 +712,7 @@
                     <div
                         class="absolute inset-0 bg-mineral transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-0">
                     </div>
-                </button>
+                </a>
             </div>
         </div>
     </section>
@@ -737,8 +742,7 @@
                             class="italic font-light">LEADERSHIP.</span></h2>
                 </div>
                 <p class="text-slate font-light max-w-sm md:text-right mt-8 md:mt-0 text-sm">
-                    A multidisciplinary collective bridging the gap between raw bio-engineering and high-fashion
-                    commercialization.
+                    A multidisciplinary collective of 35 specialized garment architects and material artists bridging the gap between raw bio-engineering and high-fashion commercialization.
                 </p>
             </div>
 
@@ -758,7 +762,7 @@
                     <div class="space-y-4">
                         <h3 class="font-serif text-4xl md:text-5xl">Mia Zhang</h3>
                         <p class="text-mineral font-sans text-xs tracking-[0.3em] uppercase font-bold">Founder of
-                            FIBORAir / Sorona® Executive Partner</p>
+                            SoroFib / Sorona® Executive Partner</p>
                     </div>
 
                     <div
@@ -806,7 +810,7 @@
                             Material Technologist</p>
                         <p class="text-slate text-base font-light leading-relaxed max-w-sm">
                             With over 12 years in molecular polymer engineering, Dr. Thorne leads the technical
-                            synthesis behind the FIBORAir matrix. His research in Torrance Lab focuses on the
+                            synthesis behind the SoroFib matrix. His research in Torrance Lab focuses on the
                             intersection of regenerative bio-polymers and adaptive thermal conductivity.
                         </p>
                     </div>
@@ -974,7 +978,7 @@
                         <!-- Decorative Mandate Seal -->
                         <div
                             class="absolute -top-12 -left-12 w-32 h-32 border border-mineral/30 rounded-full flex items-center justify-center text-[8px] tracking-[0.3em] font-bold text-mineral animate-spin-slow">
-                            <span class="p-4 text-center">FIBORAir 2026 MANDATE • BIOMATERIAL SYSTEM •</span>
+                            <span class="p-4 text-center">SoroFib 2026 MANDATE • BIOMATERIAL SYSTEM •</span>
                         </div>
 
                         <p class="text-slate font-light text-xl leading-relaxed mb-12">
@@ -1122,10 +1126,9 @@
                             <h4 class="font-serif text-2xl mb-8 text-offwhite">Executive Inquiry</h4>
                             <p class="text-offwhite/70 font-light text-sm mb-12 italic">Established for commercial
                                 partners, material scientists, and professional garment architects.</p>
-                            <a href="mailto:partners@sorofib.com"
-                                class="inline-flex items-center gap-4 font-sans text-[10px] tracking-[0.3em] font-bold uppercase py-4 px-10 bg-offwhite text-onyx hover:bg-mineral hover:text-offwhite transition-all duration-500">
+                            <div class="inline-flex items-center gap-4 font-sans text-[10px] tracking-[0.3em] font-bold uppercase py-4 px-10 bg-offwhite text-onyx shadow-2xl">
                                 Establish Protocol <i class="ph ph-arrow-right"></i>
-                            </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1156,40 +1159,28 @@
                             <div>
                                 <h4 class="text-[10px] uppercase tracking-widest text-mineral font-bold mb-4">Commercial
                                     Inquiries</h4>
-                                <a href="mailto:press@sorofib.com"
-                                    class="block text-slate text-sm font-light hover:text-white transition">press@sorofib.com</a>
-                                <a href="mailto:partners@sorofib.com"
-                                    class="block text-slate text-sm font-light hover:text-white transition">partners@sorofib.com</a>
+                                <p class="block text-slate text-sm font-light">tz167040@gmail.com</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-12 text-left reveal reveal-delay-2">
-                    <div>
-                        <h4 class="text-[10px] uppercase tracking-[0.4em] text-mineral font-bold mb-8">Social Channels
-                        </h4>
-                        <ul class="space-y-4 font-sans text-xs tracking-widest uppercase">
-                            <li class="text-slate transition-colors">Instagram</li>
-                            <li class="text-slate transition-colors">LinkedIn</li>
-                            <li class="text-slate transition-colors">Vimeo</li>
-                        </ul>
-                    </div>
+                <div class="lg:col-span-6 grid grid-cols-1 md:grid-cols-2 gap-12 text-left reveal reveal-delay-2">
                     <div>
                         <h4 class="text-[10px] uppercase tracking-[0.4em] text-mineral font-bold mb-8">Global Logistics
                         </h4>
                         <ul class="space-y-4 font-sans text-xs tracking-widest uppercase">
-                            <li class="text-slate transition-colors">Shipping Policy</li>
-                            <li class="text-slate transition-colors">Returns</li>
-                            <li class="text-slate transition-colors">Tracking</li>
+                            <li class="text-slate hover:text-white cursor-pointer transition-colors" onclick="openInfoModal('shipping')">Shipping Policy</li>
+                            <li class="text-slate hover:text-white cursor-pointer transition-colors" onclick="openInfoModal('returns')">Returns</li>
+                            <li class="text-slate hover:text-white cursor-pointer transition-colors" onclick="openInfoModal('tracking')">Tracking</li>
                         </ul>
                     </div>
                     <div>
                         <h4 class="text-[10px] uppercase tracking-[0.4em] text-mineral font-bold mb-8">Digital Hub</h4>
                         <ul class="space-y-4 font-sans text-xs tracking-widest uppercase">
-                            <li class="text-slate transition-colors">Privacy</li>
-                            <li class="text-slate transition-colors">Institutional</li>
-                            <li class="text-slate transition-colors">Press Kit</li>
+                            <li class="text-slate hover:text-white cursor-pointer transition-colors" onclick="openInfoModal('privacy')">Privacy</li>
+                            <li class="text-slate hover:text-white cursor-pointer transition-colors" onclick="openInfoModal('institutional')">Institutional</li>
+                            <li class="text-slate hover:text-white cursor-pointer transition-colors" onclick="openInfoModal('press')">Press Kit</li>
                         </ul>
                     </div>
                 </div>
@@ -1197,11 +1188,10 @@
 
             <div
                 class="pt-12 border-t border-slate/10 flex flex-col md:flex-row justify-between items-center text-[9px] text-slate tracking-[0.3em] uppercase font-bold reveal reveal-delay-2">
-                <p>&copy; 2026 SOROFIB INNOVATION. A FIBORAir ENTERPRISE.</p>
+                <p>&copy; 2026 SOROFIB INNOVATION. A SOROFIB ENTERPRISE. <span class="ml-2 opacity-50">FOUNDED IN 2023</span></p>
                 <div class="flex gap-8 mt-6 md:mt-0">
-                    <span>Instagram</span>
-                    <span>LinkedIn</span>
-                    <span>Legal</span>
+                    <span class="cursor-pointer hover:text-mineral transition-colors" onclick="openInfoModal('privacy')">Legal</span>
+                    <span class="cursor-pointer hover:text-mineral transition-colors" onclick="openInfoModal('institutional')">Corporate</span>
                 </div>
             </div>
         </div>
@@ -1246,6 +1236,37 @@
         </div>
     </div>
 
+    <!-- Institutional Info Modal -->
+    <div id="infoModal"
+        class="fixed inset-0 z-[200] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-700">
+        <div class="absolute inset-0 bg-[#0A0A0A]/95 backdrop-blur-md" onclick="closeInfoModal()"></div>
+        <div class="relative z-10 bg-[#050505]/80 backdrop-blur-xl border border-white/10 p-8 md:p-16 max-w-2xl mx-4 text-center shadow-[0_0_80px_rgba(44,76,59,0.3)] transform scale-95 transition-transform duration-700"
+            id="infoContent">
+            
+            <div class="w-[1px] h-12 bg-mineral mx-auto mb-8 relative overflow-hidden">
+                <div class="absolute inset-0 bg-white/50 transform -translate-y-full animate-pulse"></div>
+            </div>
+
+            <h4 id="infoCategory" class="font-sans text-[10px] tracking-[0.4em] uppercase text-mineral mb-6">Protocol</h4>
+            <h2 id="infoTitle" class="font-serif text-4xl text-white mb-8 leading-tight italic">Document Title</h2>
+
+            <p id="infoDescription" class="font-light text-slate text-sm leading-relaxed mb-12 max-w-md mx-auto">
+                Content goes here...
+            </p>
+
+            <button onclick="closeInfoModal()"
+                class="px-8 py-3 border border-white/20 hover:border-mineral text-offwhite hover:text-white transition-colors duration-300 font-sans text-[10px] tracking-widest uppercase">
+                Return to Interface
+            </button>
+
+            <!-- HUD Details -->
+            <div class="absolute top-4 left-4 w-4 h-[1px] bg-white/10"></div>
+            <div class="absolute top-4 left-4 w-[1px] h-4 bg-white/10"></div>
+            <div class="absolute bottom-4 right-4 w-4 h-[1px] bg-white/10"></div>
+            <div class="absolute bottom-4 right-4 w-[1px] h-4 bg-white/10"></div>
+        </div>
+    </div>
+
     <!-- Intersection Observer & Scroll UI Logic -->
     <script>
         // Modal State Logic
@@ -1262,6 +1283,65 @@
             modal.classList.add('opacity-0', 'pointer-events-none');
             modalContent.classList.add('scale-95');
             modalContent.classList.remove('scale-100');
+        }
+
+        // Info Modal System & Content
+        const infoModal = document.getElementById('infoModal');
+        const infoContent = document.getElementById('infoContent');
+        const infoCategory = document.getElementById('infoCategory');
+        const infoTitle = document.getElementById('infoTitle');
+        const infoDescription = document.getElementById('infoDescription');
+
+        const brandContent = {
+            shipping: {
+                category: "Global Logistics",
+                title: "Transit Protocol",
+                text: "SoroFib items are transported via our Carbon-Neutral Integrated Logistics Network. Standard institutional delivery cycles range from 7 to 14 business days, depending on the custom fiber-integration phase of your order. All packaging is bio-secure and constructed from 100% biodegradable fiber-pulp."
+            },
+            returns: {
+                category: "Material Circularity",
+                title: "Reclamation Program",
+                text: "Consistent with our commitment to material longevity, SoroFib operates a perpetual reclamation program. Garments may be returned at any point in their lifecycle for molecular recycling and fiber reclamation. We offer a lifetime structural warranty on all molecularly fused seams."
+            },
+            tracking: {
+                category: "Logistics HUD",
+                title: "Secure Asset Monitoring",
+                text: "Institutional orders are tracked via real-time encrypted frequency updates. Access to the GPS-fused aesthetics stream is available through your secure brand portal once 'Equilibrium Phase' has been achieved in production. Please refer to your institutional credentials for access."
+            },
+            privacy: {
+                category: "Data Security",
+                title: "Biometric Integrity",
+                text: "Your privacy is a foundational logic. Biometric data acquired for bespoke structural fitting is encrypted using quantum-standard protocols and is purged from our systems 48 hours after final garment verification. We do not share fiber-usage patterns or personal aesthetics with third-party networks."
+            },
+            institutional: {
+                category: "Corporate Profile",
+                title: "Bio-System Logic",
+                text: "Established in 2023, SoroFib is a multidisciplinary laboratory dedicated to the synthesis of bio-polymers and high-performance textile architecture. Our core operations are powered by a collective of 35 specialized architects and material artists, ensuring every garment is a functional engineered system."
+            },
+            press: {
+                category: "Media Relations",
+                title: "Strategic Asset Hub",
+                text: "The SoroFib Press Hub contains ultra-high-definition fabric macros, brand manifestos, and technical specifications for the 'Adaptation' collection. Access to the asset server is granted to verified editorial partners via secure media access keys."
+            }
+        };
+
+        function openInfoModal(type) {
+            const content = brandContent[type];
+            if (!content) return;
+
+            infoCategory.innerText = content.category;
+            infoTitle.innerText = content.title;
+            infoDescription.innerText = content.text;
+
+            infoModal.classList.remove('opacity-0', 'pointer-events-none');
+            infoContent.classList.remove('scale-95');
+            infoContent.classList.add('scale-100');
+        }
+
+        function closeInfoModal() {
+            infoModal.classList.add('opacity-0', 'pointer-events-none');
+            infoContent.classList.add('scale-95');
+            infoContent.classList.remove('scale-100');
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -1300,7 +1380,121 @@
 
             reveals.forEach(reveal => revealOnScroll.observe(reveal));
         });
+
+        function toggleCollectionPortal() {
+            const portal = document.getElementById('collectionPortal');
+            const caret = document.getElementById('collectionsCaret');
+            const isVisible = !portal.classList.contains('opacity-0');
+
+            if (isVisible) {
+                portal.classList.add('opacity-0', 'pointer-events-none');
+                if (caret) caret.style.transform = 'rotate(0deg)';
+                document.body.style.overflow = 'auto';
+            } else {
+                portal.classList.remove('opacity-0', 'pointer-events-none');
+                if (caret) caret.style.transform = 'rotate(180deg)';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Close on escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const portal = document.getElementById('collectionPortal');
+                if (portal && !portal.classList.contains('opacity-0')) toggleCollectionPortal();
+            }
+        });
     </script>
+
+    <!-- Collection Portal (Mega Menu) -->
+    <div id="collectionPortal"
+        class="fixed inset-0 z-[100] bg-onyx/80 backdrop-blur-3xl opacity-0 pointer-events-none transition-all duration-700 flex flex-col pt-32 px-8 md:px-16 overflow-y-auto">
+        <div class="max-w-screen-2xl mx-auto w-full">
+            <div class="flex justify-between items-end mb-16 border-b border-white/5 pb-8">
+                <div>
+                    <span
+                        class="text-mineral font-sans tracking-[0.5em] uppercase text-[10px] font-bold block mb-4">System
+                        Selection</span>
+                    <h2 class="font-serif text-5xl md:text-7xl text-offwhite italic">Performance Archiving.</h2>
+                </div>
+                <button onclick="toggleCollectionPortal()"
+                    class="text-slate hover:text-white transition-colors flex items-center gap-4 group mb-4">
+                    <span class="text-[10px] uppercase tracking-widest group-hover:tracking-[0.2em] transition-all">Close
+                        Portal</span>
+                    <div class="w-10 h-[1px] bg-white/20 group-hover:bg-white transition-all"></div>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- SoroShell -->
+                <a href="lookbook.html?category=soroshell"
+                    class="group relative overflow-hidden p-8 border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-500">
+                    <span class="text-mineral text-[10px] font-bold tracking-[0.3em] uppercase mb-12 block">Series
+                        01</span>
+                    <h3 class="font-serif text-4xl text-offwhite mb-6 group-hover:italic transition-all">SoroShell</h3>
+                    <p class="text-slate text-sm font-light leading-relaxed mb-12 opacity-60 group-hover:opacity-100 transition-opacity">
+                        Adaptive High-Performance Outerwear. Engineered for urban resilience.
+                    </p>
+                    <div
+                        class="flex items-center gap-3 text-[9px] uppercase tracking-widest text-mineral opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
+                        Explore System <i class="ph ph-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- BioMatrix -->
+                <a href="lookbook.html?category=biomatrix"
+                    class="group relative overflow-hidden p-8 border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-500">
+                    <span class="text-mineral text-[10px] font-bold tracking-[0.3em] uppercase mb-12 block">Series
+                        02</span>
+                    <h3 class="font-serif text-4xl text-offwhite mb-6 group-hover:italic transition-all">BioMatrix</h3>
+                    <p class="text-slate text-sm font-light leading-relaxed mb-12 opacity-60 group-hover:opacity-100 transition-opacity">
+                        Active Thermal Layering. Molecular moisture management systems.
+                    </p>
+                    <div
+                        class="flex items-center gap-3 text-[9px] uppercase tracking-widest text-mineral opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
+                        Explore System <i class="ph ph-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- KnitLogic -->
+                <a href="lookbook.html?category=knitlogic"
+                    class="group relative overflow-hidden p-8 border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-500">
+                    <span class="text-mineral text-[10px] font-bold tracking-[0.3em] uppercase mb-12 block">Series
+                        03</span>
+                    <h3 class="font-serif text-4xl text-offwhite mb-6 group-hover:italic transition-all">KnitLogic</h3>
+                    <p class="text-slate text-sm font-light leading-relaxed mb-12 opacity-60 group-hover:opacity-100 transition-opacity">
+                        Zero-Waste Aerated Knitwear. 3D-engineered synthetic comfort.
+                    </p>
+                    <div
+                        class="flex items-center gap-3 text-[9px] uppercase tracking-widest text-mineral opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
+                        Explore System <i class="ph ph-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- LuxeSync -->
+                <a href="lookbook.html?category=luxesync"
+                    class="group relative overflow-hidden p-8 border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-500">
+                    <span class="text-mineral text-[10px] font-bold tracking-[0.3em] uppercase mb-12 block">Premium
+                        Archive</span>
+                    <h3 class="font-serif text-4xl text-offwhite mb-6 group-hover:italic transition-all">LuxeSync</h3>
+                    <p class="text-slate text-sm font-light leading-relaxed mb-12 opacity-60 group-hover:opacity-100 transition-opacity">
+                        Bio-Gold Synthesis. The intersection of luxury and fiber logic.
+                    </p>
+                    <div
+                        class="flex items-center gap-3 text-[9px] uppercase tracking-widest text-mineral opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
+                        Explore System <i class="ph ph-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div class="mt-24 pb-12 text-center">
+                <a href="lookbook.html"
+                    class="text-[10px] uppercase tracking-[0.4em] text-slate hover:text-white transition-colors italic">
+                    View Entire adaptation series Archive <i class="ph ph-caret-double-right text-[8px] ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
