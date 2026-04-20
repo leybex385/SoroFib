@@ -135,11 +135,11 @@
 <body class="antialiased">
 
     <!-- Minimal HUD Navigation -->
-    <nav class="fixed w-full top-0 z-[100] px-8 py-6 flex justify-between items-center mix-blend-difference">
-        <a href="index.html" class="text-xl font-serif tracking-[0.3em] uppercase shimmer-text italic">
+    <nav class="fixed w-full top-0 z-[100] px-8 py-6 flex justify-between items-center mix-blend-difference pointer-events-none">
+        <a href="index.html" class="text-xl font-serif tracking-[0.3em] uppercase shimmer-text italic pointer-events-auto">
             SoroFib
         </a>
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-8 pointer-events-auto">
             <span class="text-[8px] uppercase tracking-[0.5em] text-slate hidden md:block">Studio Asset Hub / Ver 2.0</span>
             <a href="index.html" class="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] font-bold text-slate hover:text-white transition-colors group">
                 <i class="ph ph-arrow-left text-xl"></i>
@@ -172,16 +172,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Category Filter Bar -->
-        <div class="sticky top-0 z-[80] bg-onyx/80 backdrop-blur-xl border-y border-white/5 py-6">
-            <div class="container mx-auto px-6 flex items-center justify-center gap-8 md:gap-16 whitespace-nowrap">
-                <button onclick="filterCategory('all')" class="filter-btn active text-[10px] uppercase font-bold tracking-[0.3em] text-white underline underline-offset-8 decoration-mineral">All Archive</button>
-                <button onclick="filterCategory('soroshell')" class="filter-btn text-[10px] uppercase font-bold tracking-[0.3em] text-slate hover:text-white">SoroShell</button>
-                <button onclick="filterCategory('biomatrix')" class="filter-btn text-[10px] uppercase font-bold tracking-[0.3em] text-slate hover:text-white">BioMatrix</button>
-                <button onclick="filterCategory('luxesync')" class="filter-btn text-[10px] uppercase font-bold tracking-[0.3em] text-slate hover:text-white">LuxeSync</button>
-            </div>
-        </div>
 
         <div class="space-y-32 py-32">
             
