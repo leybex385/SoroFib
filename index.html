@@ -5,22 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="./Adobe%20Express%20-%20file.png">
-    <title>SoroFib | Executive Material Innovation</title>
+    <title>SoroFib | Avant-Garde Design Studio</title>
     <meta name="description"
-        content="SoroFib transforms biological couture through fiber-first engineering. Building an integrated product system from Soraona® polymers to contemporary luxury garments.">
+        content="SoroFib: Contemporary couture shaped by structural innovation and visionary design. Building an integrated product system from Soraona® polymers to contemporary luxury silhouettes.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sorofib.com/">
-    <meta property="og:title" content="SoroFib | Executive Material Innovation">
-    <meta property="og:description" content="Building an integrated product system from fiber to contemporary garment.">
+    <meta property="og:title" content="SoroFib | Avant-Garde Design Studio">
+    <meta property="og:description" content="Contemporary couture shaped by structural innovation and visionary design.">
     <meta property="og:image" content="./ChatGPT%20Image%20Apr%2020,%202026,%2006_16_43%20AM.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://sorofib.com/">
-    <meta property="twitter:title" content="SoroFib | Executive Material Innovation">
-    <meta property="twitter:description" content="Transforming sustainability into long-term product strategy.">
+    <meta property="twitter:title" content="SoroFib | Avant-Garde Design Studio">
+    <meta property="twitter:description" content="Shaping the future of luxury through visionary design and refined aesthetics.">
     <meta property="twitter:image" content="./ChatGPT%20Image%20Apr%2020,%202026,%2006_16_43%20AM.png">
 
     <!-- Google Fonts -->
@@ -142,6 +142,15 @@
 
         .reveal-left {
             transform: translateX(-60px);
+        }
+
+        .reveal.active .hud-stat-fill {
+            width: var(--stat-val);
+        }
+
+        .look-reveal-container {
+            opacity: 1;
+            transform: translate(0, 0);
         }
 
         .reveal-right {
@@ -299,6 +308,127 @@
                 height: 60vh;
             }
         }
+        /* Email Reveal Animation */
+        .email-reveal-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        #footerEmail {
+            opacity: 0;
+            max-width: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+            color: #8E9B96;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+        }
+        #footerEmail.active {
+            opacity: 1;
+            max-width: 300px;
+            margin-left: 1rem;
+            pointer-events: auto;
+        }
+
+        /* Atelier Reveal Styles */
+        .sketch-card {
+            position: relative;
+            overflow: hidden;
+            background: #0D0D0D;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            aspect-ratio: 4/5;
+            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .sketch-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(44, 76, 59, 0.3);
+        }
+
+        .reveal-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1.2s cubic-bezier(0.19, 1, 0.22, 1), transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .image-output { opacity: 0; transform: scale(1.05); }
+        .image-sketch { opacity: 1; filter: sepia(20%) contrast(1.1); }
+
+        .sketch-card:hover .image-output { opacity: 1; transform: scale(1); }
+        .sketch-card:hover .image-sketch { opacity: 0; transform: scale(0.95); }
+
+        .atelier-label {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            z-index: 20;
+            pointer-events: none;
+            transition: all 0.5s ease;
+        }
+
+        .atelier-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 8px;
+            font-weight: 900;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: #2C4C3B;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 4px 12px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .atelier-number {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: white;
+            opacity: 0.1;
+            display: block;
+        }
+        /* Inquiry Modal Styles */
+        .inquiry-modal-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(142, 155, 150, 0.3);
+            padding: 0.75rem 0;
+            color: #F5F5F5;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            transition: border-color 0.4s ease;
+            outline: none;
+        }
+
+        .inquiry-modal-input:focus {
+            border-bottom-color: #2C4C3B;
+        }
+
+        .inquiry-modal-input option {
+            background-color: #0A0A0A;
+            color: #F5F5F5;
+        }
+
+        .inquiry-modal-label {
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: #8E9B96;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .inquiry-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%238E9B96' viewBox='0 0 256 256'%3E%3Cpath d='M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80a8,8,0,0,1,11.32-11.32L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right center;
+        }
     </style>
 </head>
 
@@ -327,7 +457,7 @@
                     <div class="nav-underline"></div>
                 </button>
                 <a href="#team" class="nav-link relative">Leadership<div class="nav-underline"></div></a>
-                <a href="#process" class="nav-link relative">R&D System<div class="nav-underline"></div></a>
+                <a href="#process" class="nav-link relative">The Studio<div class="nav-underline"></div></a>
                 <a href="#sustainability" class="nav-link relative">Impact<div class="nav-underline"></div></a>
                 <a href="#contact" class="nav-link relative">Contact<div class="nav-underline"></div></a>
             </div>
@@ -353,21 +483,20 @@
             <div class="max-w-xl w-full">
                 <div class="flex items-center gap-4 mb-10 reveal reveal-delay-1">
                     <div class="w-8 h-[1px] bg-mineral"></div>
-                    <p class="text-mineral font-sans tracking-[0.4em] uppercase text-[9px] font-bold">9-Year Industry
+                    <p class="text-mineral font-sans tracking-[0.4em] uppercase text-[9px] font-bold">9-Year Design
                         Legacy</p>
                 </div>
 
                 <h1
                     class="font-serif text-6xl lg:text-7xl xl:text-[5.5rem] leading-[0.9] text-offwhite tracking-tight reveal reveal-delay-2">
-                    Responsible<br>
-                    <span class="italic text-slate ml-8 block mt-2">Material</span>
-                    <span class="block mt-2">Thinking.</span>
+                    Structural<br>
+                    <span class="italic text-slate ml-8 block mt-2">Design</span>
+                    <span class="block mt-2">Excellence.</span>
                 </h1>
 
                 <p
                     class="text-slate font-light text-sm md:text-base leading-relaxed mt-12 border-l border-mineral/30 pl-6 max-w-sm reveal reveal-delay-3">
-                    "We transform sustainability into long-term product strategy. Building the future of luxury from the
-                    fiber up."
+                    "Shaping the future of luxury through visionary design and refined aesthetics."
                 </p>
 
                 <!-- Scroll Indicator inline for alignment -->
@@ -426,14 +555,12 @@
                         class="text-[10px] font-sans tracking-[0.4em] text-mineral uppercase font-bold border-l-2 border-mineral pl-4">
                         Strategic Pillars</h2>
                     <h3 class="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight shimmer-text">
-                        Sustainability <br><span class="italic font-light">is Logic.</span>
+                        Design <br><span class="italic font-light">is Narrative.</span>
                     </h3>
                 </div>
 
                 <p class="text-slate font-light leading-relaxed text-base md:text-lg max-w-lg">
-                    At SoroFib, we do not treat "sustainability" as a marketing label. Instead, we transform it into a
-                    foundational product strategy. Our approach ensures that environmental impact is decided before a
-                    single sketch is drawn.
+                    At SoroFib, we do not treat "design" as a mere aesthetic choice. Instead, it is our foundational logic. Our approach ensures that every silhouette is inspired by a commitment to timeless aesthetic integrity and material excellence.
                 </p>
 
                 <!-- Interactive Accordion-style Principles -->
@@ -447,10 +574,10 @@
                                 01</span>
                             <h4
                                 class="font-serif text-3xl text-offwhite group-hover:text-mineral transition-colors duration-500">
-                                Responsible Material Thinking</h4>
+                                Elevated Design Philosophy</h4>
                             <p
                                 class="text-slate text-sm font-light leading-relaxed opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-500 ease-out overflow-hidden mt-1 m-0">
-                                Transforming sustainable expression into a rigorous, long-term design language.</p>
+                                Transforming contemporary expression into a rigorous, long-term design language.</p>
                         </div>
                     </div>
                     <div class="group border-b border-white/5 py-8 cursor-pointer relative overflow-hidden">
@@ -462,10 +589,10 @@
                                 02</span>
                             <h4
                                 class="font-serif text-3xl text-offwhite group-hover:text-mineral transition-colors duration-500">
-                                Strategic Durability</h4>
+                                Structural Integrity</h4>
                             <p
                                 class="text-slate text-sm font-light leading-relaxed opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-500 ease-out overflow-hidden mt-1 m-0">
-                                Improving structural integrity to extend the product lifecycle indefinitely.</p>
+                                Improving garment longevity and form through architectural construction methods.</p>
                         </div>
                     </div>
                 </div>
@@ -605,113 +732,115 @@
         </div>
     </section>
 
-    <!-- Product Lookbook (High-end Editorial Grid) -->
     <section id="lookbook" class="py-32 relative overflow-hidden bg-[#0A0A0A]">
 
-        <!-- Elegant Heavy Knit Ambient Background (User Asset) -->
-        <div class="absolute inset-0 z-0 pointer-events-none opacity-30 mix-blend-screen bg-cover bg-center bg-fixed scale-110"
-            style="background-image: url('./1776630296.png'); filter: blur(20px) contrast(1.2);"></div>
+        <!-- Ambient Background -->
+        <div class="absolute inset-0 z-0 pointer-events-none opacity-20 bg-cover bg-center bg-fixed"
+            style="background-image: url('./new_assets/s1.png'); filter: blur(30px) grayscale(1);"></div>
 
-        <!-- Gradient masking to blend smoothly -->
-        <div
-            class="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#0A0A0A] to-transparent z-0 pointer-events-none">
-        </div>
-        <div
-            class="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#0A0A0A] to-transparent z-0 pointer-events-none">
-        </div>
-        <div class="absolute inset-0 bg-[#0A0A0A]/20 z-0 pointer-events-none mix-blend-multiply"></div>
-
-        <div class="relative z-10 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto">
-            <div class="mb-32 reveal text-center">
-                <h2 class="font-serif text-5xl md:text-7xl tracking-tight leading-[1.1] mb-6 shimmer-text">
-                    Volume I:<br><span class="italic font-light text-white">Adaptation.</span>
-                </h2>
-                <div class="w-[1px] h-24 bg-mineral mx-auto mb-6 relative overflow-hidden">
-                    <div
-                        class="absolute inset-0 bg-white/50 transform -translate-y-full hover:translate-y-full transition duration-1000">
+        <div class="relative z-10 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto text-offwhite">
+            <div class="mb-32 reveal">
+                <div class="flex flex-col md:flex-row justify-between items-end gap-8">
+                    <div>
+                        <span class="font-sans text-[10px] tracking-[0.5em] uppercase text-mineral font-bold block mb-4">Volume I Archive</span>
+                        <h2 class="font-serif text-5xl md:text-8xl tracking-tight leading-[0.9]">
+                            From Sketch to <br><span class="italic font-light text-white shimmer-text">Runway.</span>
+                        </h2>
+                    </div>
+                    <div class="max-w-xs text-right">
+                        <p class="text-slate text-sm font-light leading-relaxed italic opacity-60">
+                            Exploring the synthesis of initial design logic and high-performance realization.
+                        </p>
                     </div>
                 </div>
-                <p class="font-sans text-[10px] tracking-[0.4em] uppercase text-mineral font-bold">The Inaugural
-                    Collection</p>
+                <div class="w-full h-[1px] bg-white/5 mt-16"></div>
             </div>
 
-            <!-- Asymmetrical Editorial Grid -->
-            <div
-                class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 mt-12 relative z-10 w-full max-w-[1400px] mx-auto">
-
-                <!-- Look 1: Main Feature (Left Portrait) -->
-                <div class="md:col-span-5 relative group overflow-hidden reveal">
-                    <div
-                        class="w-full aspect-[3/4] relative overflow-hidden bg-onyx/40 shadow-2xl border border-white/5">
-                        <img src="./1776629888.png" alt="Look 1 Main"
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105">
-                        <!-- Overlay glass tag -->
-                        <div
-                            class="absolute bottom-6 left-6 font-sans text-xs tracking-[0.2em] uppercase text-white bg-[#0A0A0A]/60 backdrop-blur-md px-4 py-2 border border-white/10 group-hover:bg-[#0A0A0A]/80 transition-colors">
-                            001 / SoroFib Shell
-                        </div>
+            <!-- Integrated 6-Item Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Look 01 -->
+                <div class="sketch-card reveal">
+                    <div class="atelier-label">
+                        <span class="atelier-tag">Atelier 01</span>
+                    </div>
+                    <img src="./new_assets/s1.png" alt="Sketch 1" class="reveal-image image-sketch">
+                    <img src="./new_assets/o1.png" alt="Output 1" class="reveal-image image-output">
+                    <div class="absolute bottom-8 left-8 z-20">
+                        <h4 class="text-white font-serif text-2xl group-hover:italic transition-all">SoroFib Shell v.1</h4>
+                        <span class="text-[9px] uppercase tracking-widest text-mineral font-bold mt-2 block">Prototype Phase</span>
                     </div>
                 </div>
 
-                <!-- Right Column Staggered Layout -->
-                <div class="md:col-span-7 flex flex-col gap-6 md:gap-12">
-
-                    <!-- Look 2: Wide Landscape (Staggered Down) -->
-                    <div class="relative group overflow-hidden reveal reveal-delay-1 md:mt-24">
-                        <div
-                            class="w-full aspect-[16/9] relative overflow-hidden bg-onyx/40 shadow-2xl border border-white/5">
-                            <img src="./1776629893.png" alt="Look 2"
-                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105">
-                            <div
-                                class="absolute bottom-6 left-6 font-sans text-xs tracking-[0.2em] uppercase text-white bg-[#0A0A0A]/60 backdrop-blur-md px-4 py-2 border border-white/10 group-hover:bg-[#0A0A0A]/80 transition-colors">
-                                002 / Sorona® Trench
-                            </div>
-                        </div>
+                <!-- Look 02 -->
+                <div class="sketch-card reveal reveal-delay-1">
+                    <div class="atelier-label">
+                        <span class="atelier-tag">Atelier 02</span>
                     </div>
-
-                    <!-- Look 3 & 4: Split Underneath -->
-                    <div class="grid grid-cols-2 gap-6 md:gap-12">
-                        <div class="relative group overflow-hidden reveal">
-                            <div
-                                class="w-full aspect-square relative overflow-hidden bg-onyx/40 shadow-xl border border-white/5">
-                                <img src="./1776666134.png" alt="Look 3"
-                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105">
-                                <div
-                                    class="absolute bottom-4 left-4 font-sans text-[10px] tracking-[0.2em] uppercase text-white bg-[#0A0A0A]/60 backdrop-blur-md px-3 py-1.5 border border-white/10">
-                                    003 / Articulated Shell
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Look 4: Lifted up into the space -->
-                        <div class="relative group overflow-hidden reveal reveal-delay-2 md:-mt-16">
-                            <div
-                                class="w-full aspect-[3/4] relative overflow-hidden bg-onyx/40 shadow-xl border border-white/5">
-                                <img src="./1776629904.png" alt="Look 4"
-                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105">
-                                <div
-                                    class="absolute bottom-4 left-4 font-sans text-[10px] tracking-[0.2em] uppercase text-white bg-[#0A0A0A]/60 backdrop-blur-md px-3 py-1.5 border border-white/10">
-                                    004 / Bio-Gold Weave
-                                </div>
-                            </div>
-                        </div>
+                    <img src="./new_assets/s2.png" alt="Sketch 2" class="reveal-image image-sketch">
+                    <img src="./new_assets/o2.png" alt="Output 2" class="reveal-image image-output">
+                    <div class="absolute bottom-8 left-8 z-20">
+                        <h4 class="text-white font-serif text-2xl transition-all">Structural Silhouette</h4>
+                        <span class="text-[9px] uppercase tracking-widest text-mineral font-bold mt-2 block">Runway Adaptation</span>
                     </div>
+                </div>
 
+                <!-- Look 03 -->
+                <div class="sketch-card reveal reveal-delay-2">
+                    <div class="atelier-label">
+                        <span class="atelier-tag">Atelier 03</span>
+                    </div>
+                    <img src="./new_assets/s3.png" alt="Sketch 3" class="reveal-image image-sketch">
+                    <img src="./new_assets/o3.png" alt="Output 3" class="reveal-image image-output">
+                    <div class="absolute bottom-8 left-8 z-20">
+                        <h4 class="text-white font-serif text-2xl transition-all">Matrix Drape</h4>
+                        <span class="text-[9px] uppercase tracking-widest text-mineral font-bold mt-2 block">Fiber Weave Logic</span>
+                    </div>
+                </div>
+
+                <!-- Look 04 -->
+                <div class="sketch-card reveal">
+                    <div class="atelier-label">
+                        <span class="atelier-tag">Atelier 04</span>
+                    </div>
+                    <img src="./new_assets/s4.png" alt="Sketch 4" class="reveal-image image-sketch">
+                    <img src="./new_assets/o4.png" alt="Output 4" class="reveal-image image-output">
+                    <div class="absolute bottom-8 left-8 z-20">
+                        <h4 class="text-white font-serif text-2xl transition-all">Aerated Form</h4>
+                        <span class="text-[9px] uppercase tracking-widest text-mineral font-bold mt-2 block">Respiratory Layer</span>
+                    </div>
+                </div>
+
+                <!-- Look 05 -->
+                <div class="sketch-card reveal reveal-delay-1">
+                    <div class="atelier-label">
+                        <span class="atelier-tag">Atelier 05</span>
+                    </div>
+                    <img src="./new_assets/s5.png" alt="Sketch 5" class="reveal-image image-sketch">
+                    <img src="./new_assets/o5.png" alt="Output 5" class="reveal-image image-output">
+                    <div class="absolute bottom-8 left-8 z-20">
+                        <h4 class="text-white font-serif text-2xl transition-all">Fluid Dynamics</h4>
+                        <span class="text-[9px] uppercase tracking-widest text-mineral font-bold mt-2 block">Dynamic Logic</span>
+                    </div>
+                </div>
+
+                <!-- Look 06 -->
+                <div class="sketch-card reveal reveal-delay-2">
+                    <div class="atelier-label">
+                        <span class="atelier-tag">Atelier 06</span>
+                    </div>
+                    <img src="./new_assets/s6.png" alt="Sketch 6" class="reveal-image image-sketch">
+                    <img src="./new_assets/o6.png" alt="Output 6" class="reveal-image image-output">
+                    <div class="absolute bottom-8 left-8 z-20">
+                        <h4 class="text-white font-serif text-2xl transition-all">Final Synthesis</h4>
+                        <span class="text-[9px] uppercase tracking-widest text-mineral font-bold mt-2 block">Collection Finale</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="text-center mt-32 reveal relative z-50">
-                <a href="./lookbook.html"
-                    class="inline-block px-8 py-4 border border-slate text-offwhite hover:text-white hover:border-mineral transition duration-500 font-sans tracking-widest text-xs uppercase relative overflow-hidden group cursor-pointer focus:outline-none">
-                    <span class="relative z-10 flex items-center gap-2">Access Series Archive
-                        <svg class="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </span>
-                    <div
-                        class="absolute inset-0 bg-mineral transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-0">
-                    </div>
+            <div class="mt-32 text-center group">
+                <a href="lookbook.html" class="inline-block px-12 py-5 border border-white/10 hover:border-mineral hover:bg-white/5 transition-all text-[10px] uppercase tracking-[0.5em] text-slate hover:text-white font-bold relative overflow-hidden">
+                    <span class="relative z-10">Access Series Archive &rarr;</span>
                 </a>
             </div>
         </div>
@@ -739,10 +868,10 @@
                         class="font-sans text-[10px] tracking-[0.4em] text-mineral uppercase font-bold mb-4 block">Executive
                         Perspective</span>
                     <h2 class="font-serif text-5xl md:text-7xl leading-none shimmer-text">THE <span
-                            class="italic font-light">LEADERSHIP.</span></h2>
+                            class="italic font-light">COLLECTIVE.</span></h2>
                 </div>
                 <p class="text-slate font-light max-w-sm md:text-right mt-8 md:mt-0 text-sm">
-                    A multidisciplinary collective of 35 specialized garment architects and material artists bridging the gap between raw bio-engineering and high-fashion commercialization.
+                    A creative collective of 35 designers and garment artisans dedicated to crafting the next generation of high-fashion silhouettes through structural innovation.
                 </p>
             </div>
 
@@ -753,8 +882,7 @@
                     <img src="./photo_2026-04-19_23-30-38.jpg" alt="Mia Zhang"
                         class="w-full h-auto group-hover:scale-105 transition duration-1000" />
                     <div class="absolute bottom-10 right-0 bg-mineral px-8 py-4">
-                        <p class="font-sans text-[10px] tracking-widest uppercase font-bold text-white">Director of
-                            Innovation</p>
+                        <p class="font-sans text-[10px] tracking-widest uppercase font-bold text-white">Creative Director</p>
                     </div>
                 </div>
 
@@ -762,7 +890,7 @@
                     <div class="space-y-4">
                         <h3 class="font-serif text-4xl md:text-5xl">Mia Zhang</h3>
                         <p class="text-mineral font-sans text-xs tracking-[0.3em] uppercase font-bold">Founder of
-                            SoroFib / Sorona® Executive Partner</p>
+                            SoroFib / Featuring Sorona® Technology</p>
                     </div>
 
                     <div
@@ -787,8 +915,8 @@
                             </p>
                             <p>
                                 <strong class="text-offwhite block mb-2 font-semibold">Current Mandate</strong>
-                                As Executive Partner, Mia guides the brand’s commercialization strategy, ensuring every
-                                garment is built upon a foundation of fiber-driven design logic.
+                                As Creative Director, Mia leads the creative vision, ensuring every
+                                silhouette reflects a harmony between avant-garde aesthetics and material excellence.
                             </p>
                         </div>
                     </div>
@@ -1126,9 +1254,9 @@
                             <h4 class="font-serif text-2xl mb-8 text-offwhite">Executive Inquiry</h4>
                             <p class="text-offwhite/70 font-light text-sm mb-12 italic">Established for commercial
                                 partners, material scientists, and professional garment architects.</p>
-                            <div class="inline-flex items-center gap-4 font-sans text-[10px] tracking-[0.3em] font-bold uppercase py-4 px-10 bg-offwhite text-onyx shadow-2xl">
+                            <button onclick="openInquiryModal()" class="inline-flex items-center gap-4 font-sans text-[10px] tracking-[0.3em] font-bold uppercase py-4 px-10 bg-offwhite text-onyx shadow-2xl hover:bg-white transition-all cursor-pointer">
                                 Establish Protocol <i class="ph ph-arrow-right"></i>
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1155,11 +1283,15 @@
                                     Los Angeles, CA 90501<br>
                                     United States
                                 </p>
-                            </div>
-                            <div>
-                                <h4 class="text-[10px] uppercase tracking-widest text-mineral font-bold mb-4">Commercial
-                                    Inquiries</h4>
-                                <p class="block text-slate text-sm font-light">tz167040@gmail.com</p>
+                                <div class="flex flex-col gap-2 mt-8">
+                                    <h4 class="text-[10px] uppercase tracking-widest text-mineral font-bold mb-2">Inquiries</h4>
+                                    <div class="flex items-center group cursor-pointer" onclick="toggleEmailReveal()">
+                                        <div class="w-10 h-10 border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-center justify-center">
+                                            <i id="emailIcon" class="ph ph-envelope-simple text-xl text-mineral transition-colors"></i>
+                                        </div>
+                                        <span id="footerEmail" class="font-sans font-light ml-4 opacity-0 transition-all duration-500 pointer-events-none">tz167040@gmail.com</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1267,6 +1399,242 @@
         </div>
     </div>
 
+    <!-- Executive Inquiry Form Modal (MATCHING SCREENSHOT) -->
+    <div id="inquiryModal" class="fixed inset-0 z-[250] flex items-center justify-center opacity-0 pointer-events-none transition-all duration-500">
+        <!-- Solid Dark Backdrop -->
+        <div class="absolute inset-0 bg-black/95 backdrop-blur-2xl" onclick="closeInquiryModal()"></div>
+        
+        <div class="relative z-10 w-full max-w-4xl mx-4 bg-[#0A0A0A] border border-white/10 p-8 md:p-16 transform scale-95 transition-all duration-500 max-h-[90vh] overflow-y-auto shadow-[0_0_100px_rgba(0,0,0,1)]" id="inquiryContent">
+            
+            <!-- HUD decorative elements for premium feel -->
+            <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-mineral"></div>
+            <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-mineral"></div>
+            <div class="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-mineral"></div>
+            <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-mineral"></div>
+
+            <!-- Close Button -->
+            <button onclick="closeInquiryModal()" class="absolute top-6 right-6 text-slate hover:text-white transition-colors z-20">
+                <i class="ph ph-x text-4xl"></i>
+            </button>
+
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl text-white mb-4 uppercase tracking-[0.1em]">Executive Protocol Inquiry</h2>
+                <p class="text-mineral font-sans text-[9px] tracking-[0.5em] uppercase font-bold">Confidential Asset Request</p>
+            </div>
+
+            <form action="https://formspree.io/f/xoqgypyd" method="POST" id="protocolForm" class="space-y-12">
+                <!-- Row 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <label class="inquiry-modal-label">Name</label>
+                        <input type="text" name="name" required class="inquiry-modal-input" placeholder="Enter first name">
+                    </div>
+                    <div>
+                        <label class="inquiry-modal-label">Surname</label>
+                        <input type="text" name="surname" required class="inquiry-modal-input" placeholder="Enter surname">
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <label class="inquiry-modal-label">Position</label>
+                        <input type="text" name="position" required class="inquiry-modal-input" placeholder="Current professional title">
+                    </div>
+                    <div>
+                        <label class="inquiry-modal-label">Company Name</label>
+                        <input type="text" name="company" required class="inquiry-modal-input" placeholder="Organization or institution">
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <label class="inquiry-modal-label">Telephone Number</label>
+                        <input type="tel" name="phone" class="inquiry-modal-input" placeholder="+00 000 000 0000">
+                    </div>
+                    <div>
+                        <label class="inquiry-modal-label">Email Address</label>
+                        <input type="email" name="email" required class="inquiry-modal-input" placeholder="professional@email.com">
+                    </div>
+                </div>
+
+                <!-- Selectors -->
+                <div class="space-y-12">
+                    <div>
+                        <label class="inquiry-modal-label">Please Select Your Country</label>
+                        <select name="country" class="inquiry-modal-input inquiry-select">
+                            <option value="" disabled selected>Select location</option>
+                            <option value="Afghanistan">Afghanistan</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="Andorra">Andorra</option>
+                            <option value="Angola">Angola</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Armenia">Armenia</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Azerbaijan">Azerbaijan</option>
+                            <option value="Bahamas">Bahamas</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Barbados">Barbados</option>
+                            <option value="Belarus">Belarus</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Belize">Belize</option>
+                            <option value="Benin">Benin</option>
+                            <option value="Bhutan">Bhutan</option>
+                            <option value="Bolivia">Bolivia</option>
+                            <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                            <option value="Botswana">Botswana</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="Brunei">Brunei</option>
+                            <option value="Bulgaria">Bulgaria</option>
+                            <option value="Cambodia">Cambodia</option>
+                            <option value="Cameroon">Cameroon</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Croatia">Croatia</option>
+                            <option value="Cuba">Cuba</option>
+                            <option value="Cyprus">Cyprus</option>
+                            <option value="Czech Republic">Czech Republic</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Dominican Republic">Dominican Republic</option>
+                            <option value="Ecuador">Ecuador</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Estonia">Estonia</option>
+                            <option value="Ethiopia">Ethiopia</option>
+                            <option value="Fiji">Fiji</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Haiti">Haiti</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Hong Kong SAR">Hong Kong SAR</option>
+                            <option value="Hungary">Hungary</option>
+                            <option value="Iceland">Iceland</option>
+                            <option value="India">India</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="Iran">Iran</option>
+                            <option value="Iraq">Iraq</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Jamaica">Jamaica</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Jordan">Jordan</option>
+                            <option value="Kazakhstan">Kazakhstan</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Kuwait">Kuwait</option>
+                            <option value="Laos">Laos</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Lebanon">Lebanon</option>
+                            <option value="Libya">Libya</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                            <option value="Macao SAR">Macao SAR</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="Maldives">Maldives</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Mauritius">Mauritius</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Monaco">Monaco</option>
+                            <option value="Mongolia">Mongolia</option>
+                            <option value="Morocco">Morocco</option>
+                            <option value="Myanmar">Myanmar</option>
+                            <option value="Namibia">Namibia</option>
+                            <option value="Nepal">Nepal</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Norway">Norway</option>
+                            <option value="Oman">Oman</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Panama">Panama</option>
+                            <option value="Paraguay">Paraguay</option>
+                            <option value="Peru">Peru</option>
+                            <option value="Philippines">Philippines</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Romania">Romania</option>
+                            <option value="Russia">Russia</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="Senegal">Senegal</option>
+                            <option value="Serbia">Serbia</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Slovakia">Slovakia</option>
+                            <option value="Slovenia">Slovenia</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="South Korea">South Korea</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Taiwan">Taiwan</option>
+                            <option value="Thailand">Thailand</option>
+                            <option value="Tunisia">Tunisia</option>
+                            <option value="Turkey">Turkey</option>
+                            <option value="Ukraine">Ukraine</option>
+                            <option value="United Arab Emirates">United Arab Emirates</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="United States">United States</option>
+                            <option value="Uruguay">Uruguay</option>
+                            <option value="Uzbekistan">Uzbekistan</option>
+                            <option value="Venezuela">Venezuela</option>
+                            <option value="Vietnam">Vietnam</option>
+                            <option value="Other">Other Institutional Node</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="inquiry-modal-label">Business Type</label>
+                        <select name="business_type" class="inquiry-modal-input inquiry-select">
+                            <option value="" disabled selected>Select sector</option>
+                            <option value="Retail">Commercial Retail</option>
+                            <option value="Manufacturing">Textile Manufacturing</option>
+                            <option value="Science">Material Science Lab</option>
+                            <option value="Press">Editorial & Press</option>
+                            <option value="Government">Institutional / Government</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="inquiry-modal-label">Areas I want to learn about</label>
+                        <select name="area" class="inquiry-modal-input inquiry-select">
+                            <option value="" disabled selected>Select interest</option>
+                            <option value="SoroShell">SoroShell Integration</option>
+                            <option value="BioMatrix">BioMatrix Performance</option>
+                            <option value="SupplyChain">Integrated Supply Chain</option>
+                            <option value="Sustainability">Material Mandate HUD</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Needs -->
+                <div>
+                    <label class="inquiry-modal-label">Please describe your needs.</label>
+                    <textarea name="description" rows="4" class="inquiry-modal-input border border-white/5 p-4 mt-4" placeholder="Outline technical requirements or partnership objectives..."></textarea>
+                </div>
+
+                <!-- Submit -->
+                <div class="text-center pt-8">
+                    <p class="text-[8px] text-slate tracking-widest uppercase mb-8">Clicking "Establish Protocol" indicates that you have read the <span class="text-mineral cursor-pointer">Privacy Policy</span>.</p>
+                    <button type="submit" class="px-20 py-5 border border-white/20 hover:border-mineral text-white uppercase text-[10px] tracking-[0.5em] font-bold transition-all hover:bg-white hover:text-onyx active:scale-95">
+                        Submit Protocol Request
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Intersection Observer & Scroll UI Logic -->
     <script>
         // Modal State Logic
@@ -1344,6 +1712,24 @@
             infoContent.classList.remove('scale-100');
         }
 
+        // Inquiry Modal logic
+        const inquiryModal = document.getElementById('inquiryModal');
+        const inquiryContent = document.getElementById('inquiryContent');
+
+        function openInquiryModal() {
+            inquiryModal.classList.remove('opacity-0', 'pointer-events-none');
+            inquiryContent.classList.remove('scale-95');
+            inquiryContent.classList.add('scale-100');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeInquiryModal() {
+            inquiryModal.classList.add('opacity-0', 'pointer-events-none');
+            inquiryContent.classList.add('scale-95');
+            inquiryContent.classList.remove('scale-100');
+            document.body.style.overflow = 'auto';
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             // Haute Couture Nav Scroll Effect
             const mainNav = document.getElementById('mainNav');
@@ -1380,6 +1766,30 @@
 
             reveals.forEach(reveal => revealOnScroll.observe(reveal));
         });
+
+        function toggleEmailReveal() {
+            const email = document.getElementById('footerEmail');
+            const icon = document.getElementById('emailIcon');
+            const isVisible = email.classList.contains('active');
+            
+            if (isVisible) {
+                email.classList.remove('active');
+                icon.classList.replace('ph-envelope-simple-open', 'ph-envelope-simple');
+                icon.classList.remove('text-offwhite');
+                icon.classList.add('text-mineral');
+            } else {
+                email.classList.add('active');
+                icon.classList.replace('ph-envelope-simple', 'ph-envelope-simple-open');
+                icon.classList.remove('text-mineral');
+                icon.classList.add('text-offwhite');
+                
+                // Copy to clipboard
+                const emailText = "tz167040@gmail.com";
+                navigator.clipboard.writeText(emailText).then(() => {
+                    // Feedback handled via UI reveal
+                });
+            }
+        }
 
         function toggleCollectionPortal() {
             const portal = document.getElementById('collectionPortal');
